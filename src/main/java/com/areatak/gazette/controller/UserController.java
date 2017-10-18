@@ -57,13 +57,13 @@ public class UserController {
 
 	@CrossOrigin
 	@RequestMapping(method = RequestMethod.POST, value = "/oauth", produces = "application/json; charset=utf-8")
-	public ResponseEntity<Boolean> hasAuth(@RequestParam String token) {
+	public ResponseEntity<String> hasAuth(@RequestParam String token) {
 		try {
-			authenticator.validate(token);
-			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+			Device device = authenticator.validate(token);
+			return new ResponseEntity<String>(device.getUser().getEmail(), HttpStatus.OK);
 		} catch (Exception ignore) {
 		}
-		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+		return new ResponseEntity<String>("", HttpStatus.OK);
 
 	}
 
