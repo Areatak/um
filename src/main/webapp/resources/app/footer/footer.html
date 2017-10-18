@@ -1,0 +1,94 @@
+<md-content id="footer">
+    <div layout="column" class="footer-container" hide-gt-sm
+         style="position: relative;bottom: 0;"
+         md-scroll-shrink="false">
+        <v-accordion class="vAccordion--default" multiple>
+            <v-pane>
+                <v-pane-header class="footer-section">
+                    <div>{{'footer.using_utadoc' | translate}}</div>
+                </v-pane-header>
+                <v-pane-content>
+                    <div class="footer-link"><a href="/#faq">{{'footer.faq' | translate}}</a></div>
+                    <div class="footer-link"><a href="/#terms">{{'footer.terms' | translate}}</a></div>
+                    <div class="footer-link"><a href="/#privacy">{{'footer.privacy' | translate}}</a></div>
+                </v-pane-content>
+            </v-pane>
+            <md-divider style="border-top-color: #cacbcf;"></md-divider>
+            <v-pane>
+                <v-pane-header class="footer-section">
+                    {{'footer.more_info' | translate}}
+                </v-pane-header>
+
+                <v-pane-content>
+                    <div class="footer-link"><a href="/#job">{{'footer.job' | translate}}</a></div>
+                </v-pane-content>
+            </v-pane>
+            <md-divider style="border-top-color: #cacbcf;"></md-divider>
+           <!-- <v-pane>
+                <v-pane-header class="footer-section">
+                    {{'footer.download_app' | translate}}
+                </v-pane-header>
+
+                <v-pane-content>
+                    Pane content #2
+                </v-pane-content>
+            </v-pane>-->
+        </v-accordion>
+        <div style="margin-top: 15px;" layout-align-xs="center center" flex-xs-none class="text-justify footer-about">
+            <img src="/resources/images/logo-white.png" class="footer-logo">
+            <p style="margin-top: 10px;padding: 0px 25px;">{{'footer.desc' | translate}}</p>
+            <!--{{footer.myTest}}-->
+        </div>
+    </div>
+    <div hide-xs hide-sm class="footer-container" layout-gt-xs="row" layout="column"
+         style="position: relative;bottom: 0;"
+         md-scroll-shrink="false">
+        <!--About Section-->
+        <div flex-gt-xs="45" layout-align-xs="center center" flex-xs-none class="text-justify footer-about">
+            <img src="/resources/images/logo-white.png" class="footer-logo">
+            <p style="margin-top: 10px;">{{'footer.desc' | translate}}</p>
+            <!--{{footer.myTest}}-->
+        </div>
+        <div layout="row" flex-gt-xs="40" style="height: 60%;margin-top: 5%;">
+            <!--Links-->
+            <div layout="column" flex-xs="100" flex-gt-xs="100" layout-align-xs="center center"
+                 layout-align-gt-xs="right center"
+                 class="footer-row">
+                <h5 style="border-bottom: solid 1px rgba(255,255,255,0.3);font-weight: bold;padding-bottom: 8px;margin-right: 80px;">{{'footer.using_utadoc' | translate}}</h5>
+                <!--<div class="footer-link"><a href="/#help">{{'footer.help' | translate}}</a></div>-->
+                <div class="footer-link"><a href="/#faq">{{'footer.faq' | translate}}</a></div>
+                <div class="footer-link"><a href="/#terms">{{'footer.terms' | translate}}</a></div>
+                <div class="footer-link"><a href="/#privacy">{{'footer.privacy' | translate}}</a></div>
+                <!--<div class="footer-link"><a href="/#whitepaper">{{'footer.whitepaper' | translate}}</a></div>-->
+            </div>
+            <div layout="column" flex-xs="100" flex-gt-xs="100" layout-align-xs="center center"
+                 layout-align-gt-xs="right center" class="footer-row">
+                <h5 style="border-bottom: solid 1px rgba(255,255,255,0.3);font-weight: bold;padding-bottom: 8px;margin-right: 80px;">{{'footer.more_info' | translate}}</h5>
+                <!--<div class="footer-link"><a href="/#about">{{'footer.aboutus' | translate}}</a></div>-->
+                <!--<div class="footer-link"><a href="/#enterprise">{{'footer.enterprise' | translate}}</a></div>-->
+                <!--<div class="footer-link"><a href="/#contact">{{'footer.contact' | translate}}</a></div>-->
+                <div class="footer-link"><a href="/#job">{{'footer.job' | translate}}</a></div>
+            </div>
+            <!--Social Buttons-->
+            <!--<div layout="column" flex-xs="100" flex-gt-xs="100" layout-align="center center"
+                 layout-align-xs="center center">
+                <div class="footer-social"><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></div>
+                <div class="footer-social"><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></div>
+                <div class="footer-social"><a href="" class="social-icon"> <i class="fa fa-linkedin"></i></a></div>
+                <div class="footer-social"><a href="" class="social-icon"> <i class="fa fa-google-plus"></i></a>
+                </div>
+            </div>-->
+        </div>
+       <!-- <div flex-gt-xs="15" layout="column">
+            <a style="display:block;margin:auto;margin-top: 50px;"
+               href="https://play.google.com/store/apps/details?id=com.areatak.sabtshod">
+                <img class="img-responsive" style="display:block;margin:auto;" src="/resources/images/playstore.png"/>
+            </a>
+            &lt;!&ndash;<img class="img-responsive" style="display:block;margin:auto;" src="/resources/images/appstore.png"/>&ndash;&gt;
+        </div>-->
+        <!--<div>version<span app-version></span></div>-->
+    </div>
+
+</md-content>
+
+<!--<iframe scrolling="no" frameborder="0" src="/eNamadLogo.htm" allowtransparency="true" style="width: 150px; height:150px;"></iframe>-->

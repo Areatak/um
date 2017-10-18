@@ -1,0 +1,17 @@
+/*WebYekanFont*/
+@font-face
+{
+  font-family:'Yekan';
+src: url('Yekan.eot?#') format('eot'),  /* IE6–8 */
+     url('Yekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+     url('Yekan.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+/*WebYekanNumberFont*/
+@font-face
+{
+  font-family:'YekanJ';
+src: url('Yekan-persian.eot?#') format('eot'),  /* IE6–8 */
+     url('Yekan-persian.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+     url('Yekan-persian.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}

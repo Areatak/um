@@ -1,0 +1,167 @@
+<md-content
+        style="overflow: hidden;background-color: rgba(176,170,152,0)"
+        layout="column"
+        layout-align="center center">
+    <section
+            hide-xs hide-sm
+            class="home-uploadbox text-center"
+            layout="column" layout-align="center center"
+            flex="100" ngf-drop-available="dropAvailable"
+            ngf-drag-over-class="'dragover'"
+            ng-model="file"
+            ngf-select="upload($file)"
+            ngf-drop="upload($file)"
+            ngf-validate-fn="checkLogin($file)"
+            style="flex: 1 0 auto;">
+        <!--<img style="position: relative;display: block;margin: 40px auto auto;height: auto;-->
+        <!--width: auto;-->
+        <!--max-height: 120px;" src="/resources/images/uploaddoc.png">-->
+        <div style=" position: relative;
+margin-top: 60px;margin-bottom:30px;">
+            <div class="text-color" style="font-size:18px;padding-bottom: 10px;text-align: center;">
+                {{'upload.totalyoffline' | translate}}
+            </div>
+            <!--<span flex-->
+            <!--style="text-align: center;">محاسبه اثر انگشت، کاملا آفلاین است و فایل شما جایی آپلود نمی شود</span>-->
+        </div>
+        <div flex style="width: 70%;margin: auto;
+  flex: 0 1 auto;">
+            <div layout="row">
+                <div layout="row" hide-xs hide-sm flex="48" style="margin:auto;direction: ltr;flex: 1 0 auto;">
+                    <div flex="20" hide-xs hide-sm
+                         style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                         class="upload-btn"><i style="line-height: 2.5;"class="material-icons md-24 btn-icon"
+                                               aria-hidden="true">file_upload</i>
+                    </div>
+                    <div flex="80" hide-xs hide-sm
+                         style="background-color:#1976d2;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin-left: 0;margin-right: 5px;"
+                         class="md-primary upload-btn">
+                        <div class="text-vert-center">{{'upload.choose' | translate}}</div>
+                    </div>
+                </div>
+                <div layout="row" hide-xs hide-sm flex="48" style="margin:auto;direction: ltr;flex: 1 0 auto;">
+                    <div flex="20" hide-xs hide-sm
+                         style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                         class="upload-btn"><i style="line-height: 2.5;" class="material-icons md-24 btn-icon"
+                                               aria-hidden="true">description</i>
+                    </div>
+                    <div flex="80" hide-xs hide-sm
+                         style="background-color:#1976d2;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin-left: 0;margin-right: 5px;"
+                         class="md-primary upload-btn">
+                        <div class="text-vert-center">{{'upload.drag' | translate}}</div>
+                    </div>
+                </div>
+                <!--<div hide-xs hide-sm flex="30" style="margin:auto;flex: 1 0 auto;">
+                    <md-button
+                            style="font-size: 2.1vw;color: #0f0f0f;padding: 15px;margin-right: 0;width: 100%;margin-left: 5px;"
+                            class="md-raised">{{'upload.drag' | translate}}
+                    </md-button>
+                </div>-->
+                <div layout="row" hide-gt-sm flex="100">
+                    <!--<md-button style="display:block; margin:auto;font-size: 4vw;padding: 15px;width: 100%;"
+                               class="md-raised md-primary">{{'upload.choose' | translate}}
+                    </md-button>-->
+                    <div flex="30"
+                         style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                         class="upload-btn"><i style="line-height: 2.5;" class="material-icons md-24 btn-icon"
+                                               aria-hidden="true">description</i>
+                    </div>
+                    <div flex="80"
+                         style="background-color:#1976d2;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin-left: 0;margin-right: 5px;"
+                         class="md-primary upload-btn">
+                        <div class="text-vert-center">{{'upload.choose' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <div layout="column" class="text-color"
+                 style="font-size:16px;margin-top:30px;margin-bottom:60px;padding-bottom: 10px;text-align: center;">
+                {{'upload.desc' | translate}}
+            </div>
+
+        </div>
+    </section>
+    <section
+            hide-gt-sm
+            class="home-uploadbox-mobile text-center"
+            layout="column" layout-align="center center"
+            flex="100" ngf-drop-available="dropAvailable"
+            ngf-drag-over-class="'dragover'"
+            ng-model="file"
+            ngf-select="upload($file)"
+            ngf-drop="upload($file)"
+            ngf-validate-fn="checkLogin($file)"
+            style="flex: 1 0 auto;margin-top: 75px;">
+        <!--<img style="position: relative;display: block;margin: 40px auto auto;height: auto;-->
+        <!--width: auto;-->
+        <!--max-height: 120px;" src="/resources/images/uploaddoc.png">-->
+        <div style=" position: relative;
+margin-top: 60px;margin-bottom:30px;">
+            <div class="text-color" style="padding-right:15px; padding-left:15px;font-size:18px;padding-bottom: 10px;text-align: center;">
+                {{'upload.totalyoffline' | translate}}
+            </div>
+            <!--<span flex-->
+            <!--style="text-align: center;">محاسبه اثر انگشت، کاملا آفلاین است و فایل شما جایی آپلود نمی شود</span>-->
+        </div>
+        <div flex style="width: 70%;margin: auto;
+  flex: 0 1 auto;">
+            <div layout="row">
+                <div layout="row" hide-xs hide-sm flex="48" style="margin:auto;direction: ltr;flex: 1 0 auto;">
+                    <div flex="20" hide-xs hide-sm
+                         style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                         class="upload-btn"><i class="material-icons md-24 btn-icon"
+                                               aria-hidden="true">file_upload</i>
+                    </div>
+                    <div flex="80" hide-xs hide-sm
+                         style="background-color:#1976d2;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin-left: 0;margin-right: 5px;"
+                         class="md-primary upload-btn">
+                        <div class="text-vert-center">{{'upload.choose' | translate}}</div>
+                    </div>
+                </div>
+                <div layout="row" hide-xs hide-sm flex="48" style="margin:auto;direction: ltr;flex: 1 0 auto;">
+                    <div flex="20" hide-xs hide-sm
+                         style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                         class="upload-btn"><i class="material-icons md-24 btn-icon"
+                                               aria-hidden="true">description</i>
+                    </div>
+                    <div flex="80" hide-xs hide-sm
+                         style="background-color:#1976d2;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin-left: 0;margin-right: 5px;"
+                         class="md-primary upload-btn">
+                        <div class="text-vert-center">{{'upload.drag' | translate}}</div>
+                    </div>
+                </div>
+                <!--<div hide-xs hide-sm flex="30" style="margin:auto;flex: 1 0 auto;">
+                    <md-button
+                            style="font-size: 2.1vw;color: #0f0f0f;padding: 15px;margin-right: 0;width: 100%;margin-left: 5px;"
+                            class="md-raised">{{'upload.drag' | translate}}
+                    </md-button>
+                </div>-->
+                <div layout="row" hide-gt-sm flex="100">
+                    <!--<md-button style="display:block; margin:auto;font-size: 4vw;padding: 15px;width: 100%;"
+                               class="md-raised md-primary">{{'upload.choose' | translate}}
+                    </md-button>-->
+                    <div flex="25"
+                         style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                         class="upload-btn"><i style="line-height: 2.5;" class="material-icons md-24 btn-icon"
+                                               aria-hidden="true">description</i>
+                    </div>
+                    <div flex="75"
+                         style="background-color:#1976d2;color:white;height:90px;padding: 15px;margin-left: 0;margin-right: 5px;"
+                         class="md-primary upload-btn">
+                        <div class="text-vert-center">{{'upload.choose' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <div layout="column" class="text-color"
+                 style="font-size:16px;margin-top:30px;margin-bottom:60px;padding-bottom: 10px;text-align: center;">
+                {{'upload.desc' | translate}}
+            </div>
+
+        </div>
+    </section>
+    <div ng-show="loading" style="margin-top: 50px;">
+        <strong>{{'upload.wait' | translate}}</strong>
+        <md-progress-linear style="width: 100%;margin-top: 40%" ng-disabled="!loading"
+                            md-mode="indeterminate"></md-progress-linear>
+    </div>
+
+</md-content>

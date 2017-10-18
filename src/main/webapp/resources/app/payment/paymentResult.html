@@ -1,0 +1,87 @@
+<md-dialog class="msg-dialog" aria-label="PaymentResult">
+    <form name="paymentResultForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'payment.buyCredit' | translate}}</h2>
+                <span flex></span>
+                <md-button class="dialog-close-btn" ng-click="cancel()">
+                    <i class="material-icons md-24">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-card style="min-width: 400px;" class="trx-detail">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span ng-if="waitingForPayment" class="md-headline">{{'payment.paymentAddressDesc' | translate}}</span>
+
+                        <div ng-if="!waitingForPayment">
+                            <span class="transaction-detail-status">
+                                <span class="trx-status-pending">
+                                    <i class="material-icons md-24" aria-hidden="true">
+                                        schedule
+                                    </i>
+                                    {{'transaction.status.waiting' | translate}}
+                                </span>
+                            </span>
+                            <br/>
+                            <span style="font-size: 12px;" class="trx-status-pending">
+                                {{'payment.resultMsg.timeLeft' | translate}}
+                                10
+                                {{'transaction.remainingTime.to' | translate}}
+                                20
+                                {{'transaction.remainingTime.minute' | translate}}
+                            </span>
+                            <br/>
+                            <span style="font-size: 12px;" class="trx-status-pending">
+                                {{'payment.resultMsg.whenDone' | translate}}
+                            </span>
+                        </div>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media">
+                            <qrcode size="128" data="{{result.qr}}"
+                                    href="{{result.url}}"></qrcode>
+                        </div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-content style="line-height: 3;">
+                    <div layout="row" class="ie-flex" style="flex: 1 0 auto!important;">
+                        <div layout="column" flex="1" class="ie-flex" style="flex: 1 0 auto!important;">
+                        {{'payment.paymentAddress' | translate}}
+                        </div>
+                        <div layout="column" flex="2" class="ie-flex" style="flex: 1 0 auto!important;">
+                            {{result.address}}
+                        </div>
+                    </div>
+                    <div layout="row" class="ie-flex" style="flex: 1 0 auto!important;">
+                        <div layout="column" flex="1" class="ie-flex" style="flex: 1 0 auto!important;">
+                            {{'payment.amountUtabit' | translate}}
+                        </div>
+                        <div layout="column" flex="2" class="ie-flex" style="flex: 1 0 auto!important;">
+                            {{result.amount}}
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+
+
+            <!--<div flex layout="row" class="md-dialog-content md-margin">
+                <div flex="20" class="ie-flex">
+                    <div style="display: flex;align-items: center;justify-content: center;" ng-if="msg.type" ng-class="'alert-' + (msg.type || 'error')">
+                        <i ng-if="msg.type == 'error'" class="material-icons md-48" aria-hidden="true">error</i>
+                        <i ng-if="msg.type == 'ok'" class="material-icons md-48" aria-hidden="true">done</i>
+                    </div>
+                </div>
+                <div layout="column" flex="80" class="ie-flex" style="display: flex;align-items: center;justify-content: center;">
+                    <div ng-if="msg.text" class="bold" style="font-size: 16px;">
+                        {{msg.text}}
+                    </div>
+                    <div ng-if="refId" class="bold" style="margin-top: 20px;font-size: 16px;" ng-if="msg.refId">
+                        {{'payment.paymentResult' | translate}}: {{msg.refId}}
+                    </div>
+                </div>
+            </div>-->
+        </md-dialog-content>
+    </form>
+</md-dialog>

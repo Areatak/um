@@ -1,0 +1,89 @@
+<md-content style="min-height: 100%;height: auto;" ng-cloak layout-fill class="md-padding">
+    <div ng-if="trx" layout="column" layout-align="center center">
+        <md-card style="min-width: 400px;" class="trx-detail">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{'transaction.detail.title' | translate}}</span>
+                    <span class="md-subhead transaction-detail-time">
+                        {{trx.created}}
+                    </span>
+                    <span class="md-subhead transaction-detail-time">
+                        <span ng-if="trx.duration.days">{{trx.duration.days}}{{'transaction.relativeTime.day' | translate}}</span>
+                        <span ng-if="trx.duration.hours">{{trx.duration.hours}}{{'transaction.relativeTime.hour' | translate}}</span>
+                        <span ng-if="trx.duration.minutes">{{trx.duration.minutes}}{{'transaction.relativeTime.minute' | translate}}</span>
+                        <span ng-if="trx.duration.seconds">{{trx.duration.seconds}}{{'transaction.relativeTime.second' | translate}}</span>
+                        <span>{{'transaction.relativeTime.ago' | translate}}</span>
+                        <md-tooltip md-delay="300">
+                            {{trx.created}}
+                        </md-tooltip>
+                    </span>
+
+                    <span class="transaction-detail-status">
+                        <span ng-if="trx.paymentStatus == 'Pending'" class="trx-status-pending"><i
+                                class="material-icons md-24"
+                                aria-hidden="true">schedule</i>{{'transaction.paymentStatus.Pending' | translate}}</span>
+                        <span ng-if="trx.paymentStatus  == 'Paid'" class="trx-status-confirmed"><i
+                                class="material-icons md-24"
+                                aria-hidden="true">done</i>{{'transaction.paymentStatus.Paid' | translate}}
+                            <md-tooltip md-delay="300">
+                            {{trx.paymentDate}}
+                        </md-tooltip>
+                        </span>
+                    </span>
+                    <span class="transaction-detail-status">
+                        <span ng-if="trx.confirmations == 0" class="trx-status-pending"><i class="material-icons md-24"
+                                                                                           aria-hidden="true">schedule</i>{{'transaction.status.waiting' | translate}}</span>
+                        <span ng-if="trx.confirmations > 0" class="trx-status-confirmed"><i class="material-icons md-24"
+                                                                                            aria-hidden="true">done_all</i>{{'transaction.status.confirmed' | translate}}</span>
+                    </span>
+                    <div style="font-size: 12px;" ng-if="trx.confirmations == 0 && trx.minutesToConfirmFrom > 0"
+                         class="trx-status-pending">
+                        {{'transaction.remainingTime.leftMsg' | translate}}
+                        {{trx.minutesToConfirmFrom}}
+                        {{'transaction.remainingTime.to' | translate}}
+                        {{trx.minutesToConfirmTo}}
+                        {{'transaction.remainingTime.minute' | translate}}
+                    </div>
+
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-lg card-media">
+                        <qrcode size="128" data="http://utadoc.com/#/transaction/detail/{{trx.txId}}"
+                                href="http://utadoc.com/#/transaction/detail/{{trx.txId}}"></qrcode>
+                    </div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-content>
+                <!--<div layout="column">
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.id' | translate}}</label>
+                        <textarea ng-model="trx.txId" disabled>{{trx.txId}}</textarea>
+                    </md-input-container>
+                </div>-->
+                <div layout="column">
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.hash' | translate}}</label>
+                        <textarea ng-model="trx.hash" disabled>{{trx.hash}}</textarea>
+                    </md-input-container>
+                </div>
+                <div layout="column">
+                    <md-input-container class="md-block">
+                        <span>{{'general.words.desc' | translate}}</span>
+                        <textarea ng-model="trx.desc" disabled>{{trx.desc}}</textarea>
+                    </md-input-container>
+                </div>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-if="trx.downloadable && trx.fileId" class="md-primary md-button md-raised"
+                           ng-href="/downloadTnxFile/{{token}}&{{trx.fileId}}">
+                    {{'transaction.download' | translate}}
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <div style="color: #2962ff;font-size:50px;font-weight: bold;" ng-if="!trx && !loading" layout="column"
+         layout-align="center center">
+        <i style="font-size:15vw;margin-bottom: 40px;" class="material-icons" aria-hidden="true">report_problem</i>
+        {{'transaction.detail.204' | translate}}
+    </div>
+</md-content>

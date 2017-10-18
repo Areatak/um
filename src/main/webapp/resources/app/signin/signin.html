@@ -1,0 +1,60 @@
+<md-dialog class="auth-dialog" aria-label="SingIn">
+    <form name="signinForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'general.words.signin' | translate}}</h2>
+                <span flex></span>
+                <md-button class="dialog-close-btn" ng-click="cancel()">
+                    <i class="material-icons md-24">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block">
+                    <label>{{'general.words.email' | translate}}</label>
+                    <input name="email" type="email" ng-model="userData.email" ng-pattern="/^.+@.+\..+$/" md-autofocus
+                           required class="Yekan"/>
+                    <div ng-messages="signinForm.email.$error" role="alert">
+                        <div ng-message="required">
+                            {{'general.input.validEmail' |
+                            translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'general.words.password' | translate}}</label>
+                    <input type="password" name="password" ng-model="userData.password" required/>
+                    <div ng-messages="signinForm.password.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            {{'general.input.required' |
+                            translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <div layout="row">
+                    <div flex></div>
+                    <md-button style="font-size: 12px;" md-no-ink class="md-primary" ng-click="forgetPassword()">
+                        {{'signin.forgotPassword' | translate}}
+                    </md-button>
+                </div>
+            </div>
+            <!--<div>
+                <div ng-if="msg.status" ng-class="'alert-' + (msg.type || 'error')">
+                    <i ng-if="msg.type == 'error'" class="material-icons md-24" aria-hidden="true">error</i>
+                    {{'signin.'+msg.status | translate}}
+                </div>
+            </div>-->
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <div layout="column">
+                <md-button md-no-ink class="md-primary" ng-click="signup()">{{'signin.signup' | translate}}</md-button>
+            </div>
+            <span flex></span>
+            <md-button type="button" ng-click="submit()" ng-disabled="signinForm.$invalid" class="md-raised md-primary">
+                {{'general.words.signin' | translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

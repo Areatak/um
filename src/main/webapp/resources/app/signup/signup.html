@@ -1,0 +1,232 @@
+<md-dialog class="auth-dialog" aria-label="Signup">
+    <form name="signupForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'general.words.signup' | translate}}</h2>
+                <span flex></span>
+                <md-button class="dialog-close-btn" ng-click="cancel()">
+                    <i class="material-icons md-24">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div layout="row" layout-xs="column" layout-sm="column">
+                <div class="md-dialog-content">
+                    <h4 class="field-group">{{'signup.fieldGroup.account' | translate}}</h4>
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.email' | translate}}</label>
+                        <input name="email" type="email" ng-model="userData.email" ng-pattern="/^.+@.+\..+$/"
+                               md-autofocus
+                               required/>
+                        <div ng-messages="signupForm.email.$error" role="alert">
+                            <div ng-message-exp="['pattern']">
+                                {{'general.input.validEmail' |
+                                translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.name' | translate}}</label>
+                        <input name="name" type="text" ng-model="userData.name"
+                               required/>
+                        <div ng-messages="signupForm.name.$error" role="alert">
+                            <div ng-message-exp="['required']">
+                                {{'general.input.required' |
+                                translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.lastName' | translate}}</label>
+                        <input name="lastName" type="text" ng-model="userData.lastName"
+                               required/>
+                        <div ng-messages="signupForm.lastName.$error" role="alert">
+                            <div ng-message-exp="['required']">
+                                {{'general.input.required' |
+                                translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.job' | translate}}</label>
+                        <input name="job" type="text" ng-model="userData.job"
+                               required/>
+                        <div ng-messages="signupForm.job.$error" role="alert">
+                            <div ng-message-exp="['required']">
+                                {{'general.input.required' |
+                                translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <div layout="row">
+                        <md-input-container style="margin-top: 5px;">
+                            <label>{{'signup.country' | translate}}</label>
+                            <md-select ng-model="phoneCountry" style="font-weight: bold;">
+                                <md-option ng-repeat="c in countries" ng-value="c.diallingCode">
+                                    {{c.name}} ({{c.diallingCode}})
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>{{'general.words.phone' | translate}}</label>
+                            <input class="phone" name="phone" type="number" ng-model="userData.phone"
+                                   required/>
+                            <div ng-messages="signupForm.phone.$error" role="alert">
+                                <div ng-message-exp="['required']">
+                                    {{'general.input.required' |
+                                    translate}}
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <!--<md-input-container class="md-block">-->
+                    <!--<div layout="row">
+                        <div flex>
+                            <md-input-container style="margin: 10px 0px 20px 5px;">
+                                <label>{{'signup.country' | translate}}</label>
+                                <md-select ng-model="userData.phoneCountry" style="font-weight: bold;">
+                                    <md-option ng-repeat="c in countries" ng-value="c.code">
+                                        {{c.name}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div flex>
+                            <label>{{'general.words.phone' | translate}}</label>
+                            <input name="phone" type="text" ng-model="userData.phone" ng-intl-tel-input required/>
+                            &lt;!&ndash;<input name="phone" type="text" ng-model="userData.phone"
+                                   required/>&ndash;&gt;
+                            <div ng-messages="signupForm.phone.$error" role="alert">
+                                <div ng-message-exp="['required']">
+                                    {{'general.input.required' |
+                                    translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <!--</md-input-container>-->
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.password' | translate}}</label>
+                        <input type="password" name="password" ng-model="userData.password" minlength="6" required/>
+                        <div ng-messages="signupForm.password.$error" role="alert">
+                            <div ng-message-exp="['required']">
+                                {{'general.input.required' |
+                                translate}}
+                            </div>
+                            <div ng-message-exp="['minlength']">
+                                {{'general.input.minlength.6' |
+                                translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.confirmPassword' | translate}}</label>
+                        <input type="password" name="confirmPassword" ng-model="userData.confirmPassword" minlength="6"
+                               required/>
+                        <div ng-messages="signupForm.password.$error" role="alert">
+                            <div id="confirmPasswordError" ng-message-exp="['minlength','required']">
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div class="md-dialog-content">
+                    <h4 class="field-group">{{'signup.fieldGroup.company' | translate}}</h4>
+                    <div layout="row">
+                        <md-input-container style="margin: 10px 0px 20px 5px;">
+                            <label>{{'signup.country' | translate}}</label>
+                            <md-select ng-model="userData.companyCountry" style="font-weight: bold;">
+                                <md-option ng-repeat="c in countries" ng-value="c.code">
+                                    {{c.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container style="margin: 10px 0px 25px 5px;">
+                            <label>{{'signup.companyActivity' | translate}}</label>
+                            <md-select style="font-weight: bold;" ng-model="userData.companyActivity">
+                                <md-option value="FullServiceAdvertising">
+                                    Full Service Advertising
+                                </md-option>
+                                <md-option value="GraphicStudio">
+                                    Graphic Studio
+                                </md-option>
+                                <md-option value="ProductionCompany">
+                                    Production Company (Film/TVC/Motion/Animation)
+                                </md-option>
+                                <md-option value="FullServiceDigital">
+                                    Full Service Digital
+                                </md-option>
+                                <md-option value="DigitalExpertise">
+                                    Digital Expertise (Social Media/ Brand Content/ Mobile)
+                                </md-option>
+                                <md-option value="Event">
+                                    Event
+                                </md-option>
+                                <md-option value="Media">
+                                    Media
+                                </md-option>
+                                <md-option value="AdvertiserInHouse">
+                                    Advertiser/In-House
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                        <label>{{'signup.companyName' | translate}}</label>
+                        <input name="companyName" type="text" ng-model="userData.companyName"/>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>{{'signup.postalAddress' | translate}}</label>
+                        <input name="postalAddress" type="text" ng-model="userData.postalAddress"/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'signup.city' | translate}}</label>
+                        <input name="city" type="text" ng-model="userData.city"/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'signup.postCode' | translate}}</label>
+                        <input name="postCode" type="text" ng-model="userData.postCode"/>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>{{'signup.companyPhone' | translate}}</label>
+                        <input class="phone" name="companyPhone" type="number" ng-model="userData.companyPhone"/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'signup.companyWebsite' | translate}}</label>
+                        <input name="companyWebsite" type="text" ng-model="userData.companyWebsite"/>
+                    </md-input-container>
+                </div>
+                <div class="md-dialog-content">
+                    <h4 class="field-group">{{'signup.fieldGroup.creativeDirector' | translate}}</h4>
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.name' | translate}}</label>
+                        <input name="cdName" type="text" required ng-model="userData.cdName"/>
+                        <div ng-messages="signupForm.cdName.$error" role="alert">
+                            <div ng-message-exp="['required']">
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'general.words.lastName' | translate}}</label>
+                        <input name="cdLastName" type="text" required ng-model="userData.cdLastName"/>
+                        <div ng-messages="signupForm.cdLastName.$error" role="alert">
+                            <div ng-message-exp="['required']">
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button md-no-ink class="md-primary" ng-click="signin()">{{'signin.signin' | translate}}</md-button>
+            <span flex></span>
+            <md-button type="button" ng-click="submit()" ng-disabled="signupForm.$invalid" class="md-raised md-primary">
+                {{'general.words.signup' | translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

@@ -1,0 +1,91 @@
+<md-dialog class="auth-dialog" aria-label="Profile">
+    <form name="profileForm" style="overflow: hidden;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'profile.title' | translate}}</h2>
+                <span flex></span>
+                <md-button class="dialog-close-btn" ng-click="cancel()">
+                    <i class="material-icons md-24">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block">
+                    <label>{{'profile.name' | translate}}</label>
+                    <input type="text" ng-model="userData.fname" md-autofocus
+                           />
+                    <div ng-messages="profileForm.fname.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            {{'general.input.required' |
+                            translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'profile.family' | translate}}</label>
+                    <input type="text" ng-model="userData.lname"
+                           />
+                    <div ng-messages="profileForm.lname.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            {{'general.input.required' |
+                            translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container ng-if="userData.changePassword" class="md-block">
+                    <label>{{'profile.currentPass' | translate}}</label>
+                    <input type="password" ng-model="userData.oldPassword" minlength="6"
+                           required/>
+                    <div ng-messages="profileForm.password.$error" role="alert">
+                        <div id="oldPasswordError" ng-message-exp="['minlength','required']">
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container ng-if="userData.changePassword" class="md-block">
+                    <label>{{'general.words.password' | translate}}</label>
+                    <input type="password" ng-model="userData.password" minlength="6" required/>
+                    <div ng-messages="profileForm.password.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            {{'general.input.required' |
+                            translate}}
+                        </div>
+                        <div ng-message-exp="['minlength']">
+                            {{'general.input.minlength.6' |
+                            translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container ng-if="userData.changePassword" class="md-block">
+                    <label>{{'general.words.confirmPassword' | translate}}</label>
+                    <input type="password" ng-model="userData.confirmPassword" minlength="6"
+                           required/>
+                    <div ng-messages="profileForm.password.$error" role="alert">
+                        <div id="confirmPasswordError" ng-message-exp="['minlength','required']">
+                        </div>
+                    </div>
+                </md-input-container>
+                <div layout="row">
+                    <div flex="80">
+                        <img ngf-src="pic" class="thumb">
+                    </div>
+                    <div flex="20">
+                        <input id="fileInput" type="file" ngf-select="" ng-model="pic" $scope="file"
+                               ngf-accept="'image/*'" class="ng-hide">
+                        <md-button ng-click="uploadBtn()" class="md-fab md-mini" aria-label="Pic">
+                            <i class="material-icons">photo_camera</i>
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-switch style="margin-right: 60px;" class="md-primary" md-no-ink aria-label="Change Password"
+                       ng-model="userData.changePassword">
+                {{'profile.changePass' | translate}}
+            </md-switch>
+            <md-button ng-click="submit()" type="button" ng-disabled="profileForm.$invalid" class="md-raised md-primary">{{'profile.edit' | translate}}</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

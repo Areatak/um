@@ -1,0 +1,164 @@
+<md-content layout="column"
+            id="validate-md-content"
+            style="overflow: hidden;background-color: rgba(176,170,152,0);height: 400px;color:#ffffff;"
+            layout-align="center center">
+    <section
+            class="validate-uploadbox"
+            layout="row" layout-align="center center"
+            flex="100" ngf-drop-available="dropAvailable"
+            ngf-drag-over-class="'dragover'"
+            ng-model="file"
+            ngf-drop="validateUpload($file)"
+            ngf-select="validateUpload($file)"
+            style="flex: 0 1 auto!important;"
+    >
+        <!--<img style="position: relative;display: block;height: auto;
+    width: auto;
+    max-height: 180px;background-color: transparent!important;" src="/resources/images/validate-box.png">-->
+        <!--<div layout="column" style="margin-top: 3%;font-weight: bold;">
+            <div style="margin-top:7%;font-weight: bold;padding-bottom: 10px;text-align: center;">محاسبه اثر انگشت،
+                کاملا آفلاین است و فایل شما جایی آپلود نمی شود
+            </div>
+            &lt;!&ndash;<span flex&ndash;&gt;
+            &lt;!&ndash;style="text-align: center;">محاسبه اثر انگشت، کاملا آفلاین است و فایل شما جایی آپلود نمی شود</span>&ndash;&gt;
+            <div flex layout="row" class="rtl"
+                 style="vertical-align : bottom;flex: 0 1 auto;">
+                <div hide-xs hide-sm flex="50" style="direction: ltr;flex: 1 0 auto;">
+                    <md-button hide-xs hide-sm
+                               style="font-size: 2.1vw;font-weight:bold;padding: 15px;margin-left: 0;width: 100%;margin-right: 5px;"
+                               class="md-raised md-primary">
+                        فایل را انتخاب کنید
+                    </md-button>
+                </div>
+                <div hide-xs hide-sm flex="50" style="flex: 1 0 auto;">
+                    <md-button
+                            style="font-size: 2.1vw;font-weight: bold;color: #0f0f0f;padding: 15px;margin-right: 0;width: 100%;margin-left: 5px;"
+                            class="md-raised">
+                        یا به اینجا بکشید
+                    </md-button>
+                </div>
+                <div hide-gt-sm flex="100">
+                    <md-button style="display:block; margin:auto;font-size: 4vw;padding: 15px;width: 100%;"
+                               class="md-raised md-primary">
+                        فایل را انتخاب کنید
+                    </md-button>
+                </div>
+            </div>
+        </div>-->
+
+        <!--            فایل را انتخاب کنید <span ng-show="dropAvailable" class="">یا به اینجا بکشید</span>
+                </div>-->
+        <div layout="column" style="position: relative;
+    width: 100%;height: 100%;min-height: 100%;">
+            <div ng-if="status !== 'uploading'" style="text-align: center;background:white;margin: 25px auto 5px auto;height: 150px;width: 150px;border: solid 7px #bcbcbc;border-radius: 1000px;">
+                <i ng-if="status === 'ready'" style="position: relative;top: calc(35% - 10px);color: #0e47a1;" class="material-icons validate-status-icon"
+                   aria-hidden="true">file_upload</i>
+                <i ng-if="status === 'ok'" style="position: relative;top: calc(35% - 10px);color: #1e852c;" class="material-icons validate-status-icon"
+                   aria-hidden="true">done</i>
+                <i ng-if="status === 'error'" style="position: relative;top: calc(35% - 10px);color: #d40f23;" class="material-icons validate-status-icon"
+                   aria-hidden="true">clear</i>
+                <!--<i ng-if="status === 'uploading'" style="position: relative;top: calc(40% - 10px);color: blue;" class="material-icons md-48 validate-status-iconn"
+                   aria-hidden="true">person</i>-->
+            </div>
+            <div ng-if="status === 'uploading'" style="margin-bottom:25px;text-align: center;">
+                <md-progress-circular class="md-hue-2" style="background:rgba(255,255,255,1);border-radius:50%;z-index:1000;margin: 0;position: absolute;top: 25%;left: 50%;margin-right: -50%;transform: translate(-50%, -50%);height:150px!important;width:150px!important;" md-diameter="150" md-mode="indeterminate"></md-progress-circular>
+                <!--<h4 style="color:#0d47a1;z-index:1002;margin: 0;position: absolute;top: 23%;left:48%;margin-right: -50%;">Please wait...</h4>-->
+                <div class="upload-radiation"></div>
+                <div class="upload-radiation"></div>
+                <div class="upload-radiation"></div>
+            </div>
+
+            <div ng-if="status === 'uploading'" style="width:150px; height:150px;">
+            </div>
+
+
+            <div style="margin-top:25px;color:rgba(0,0,0,0.87);font-size:18px;padding: 10px;text-align: center;">
+                {{'upload.totalyoffline' | translate}}
+            </div>
+
+
+            <!--<div flex layout="row" class="upload-btn-ie"
+                 style="flex: 0 1 auto;position: absolute;width: 100%;
+  bottom: 25px;">
+                <div hide-xs hide-sm flex="50" style="direction: ltr;flex: 1 0 auto;">
+                    <md-button hide-xs hide-sm
+                               style="font-size: 2.1vw;font-weight:bold;padding: 15px;
+                               margin-left: 0;width: 100%;margin-right: 5px;
+                                background-color: rgb(255,244,210); color:#2e2e2e;"
+                               class="md-raised">{{'upload.choose' | translate}}</md-button>
+                </div>
+                <div hide-xs hide-sm flex="50" style="flex: 1 0 auto;">
+                    <md-button
+                            style="font-size: 2.1vw;font-weight: bold;color: #2e2e2e;padding: 15px;margin-right: 0;width: 100%;margin-left: 5px;"
+                            class="md-raised">{{'upload.drag' | translate}}</md-button>
+                </div>
+                <div hide-gt-sm flex="100" style="margin-bottom: 10px;">
+                    <md-button style="display:block; margin:auto;font-size: 4vw;padding: 15px;width: 100%;color:#2e2e2e;background-color: #FAEFCE;"
+                               class="md-raised md-primary">{{'upload.choose' | translate}}</md-button>
+                </div>
+            </div>-->
+
+            <div flex style="width: 70%;margin: 15px auto 0px auto;
+  flex: 0 1 auto;">
+                <div layout="row">
+                    <div layout="row" hide-xs hide-sm flex="48" style="text-align:center;margin:auto;direction: ltr;flex: 1 0 auto;">
+                        <div flex="20" hide-xs hide-sm
+                             style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                             class="upload-btn"><i style="line-height: 2.5;" class="material-icons md-24 btn-icon"
+                                                   aria-hidden="true">file_upload</i>
+                        </div>
+                        <div flex="80" hide-xs hide-sm
+                             style="background-color:#1976d2;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin-left: 0;margin-right: 5px;"
+                             class="md-primary upload-btn">
+                            <div class="text-vert-center">{{'upload.choose' | translate}}</div>
+                        </div>
+                    </div>
+                    <div layout="row" hide-xs hide-sm flex="48" style="text-align:center;margin:auto;direction: ltr;flex: 1 0 auto;">
+                        <div flex="20" hide-xs hide-sm
+                             style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                             class="upload-btn"><i style="line-height: 2.5;" class="material-icons md-24 btn-icon"
+                                                   aria-hidden="true">description</i>
+                        </div>
+                        <div flex="80" hide-xs hide-sm
+                             style="background-color:#1976d2;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin-left: 0;margin-right: 5px;"
+                             class="md-primary upload-btn">
+                            <div class="text-vert-center">{{'upload.drag' | translate}}</div>
+                        </div>
+                    </div>
+                    <!--<div hide-xs hide-sm flex="30" style="margin:auto;flex: 1 0 auto;">
+                        <md-button
+                                style="font-size: 2.1vw;color: #0f0f0f;padding: 15px;margin-right: 0;width: 100%;margin-left: 5px;"
+                                class="md-raised">{{'upload.drag' | translate}}
+                        </md-button>
+                    </div>-->
+                    <div layout="row" hide-gt-sm flex="100">
+                        <!--<md-button style="display:block; margin:auto;font-size: 4vw;padding: 15px;width: 100%;"
+                                   class="md-raised md-primary">{{'upload.choose' | translate}}
+                        </md-button>-->
+                        <div flex="30"
+                             style="background-color:#0d47a1;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin: 0px;"
+                             class="upload-btn"><i style="line-height: 2.5;" class="material-icons md-24 btn-icon"
+                                                   aria-hidden="true">description</i>
+                        </div>
+                        <div flex="80"
+                             style="background-color:#1976d2;color:white;height:90px;font-size: 1.8vw;padding: 15px;margin-left: 0;margin-right: 5px;"
+                             class="md-primary upload-btn">
+                            <div class="text-vert-center">{{'upload.choose' | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div layout="column" class="text-color"
+                     style="font-size:16px;margin-top:30px;margin-bottom:60px;padding-bottom: 10px;text-align: center;">
+                    {{'upload.desc' | translate}}
+                </div>
+-->
+            </div>
+
+        </div>
+    </section>
+    <!--<div ng-show="loading" style="margin-top: 30%;">
+        <strong>{{'upload.wait' | translate}}</strong>
+        <md-progress-linear style="width: 100%;margin-top: 40%" ng-disabled="!loading"
+                            md-mode="indeterminate"></md-progress-linear>
+    </div>-->
+</md-content>

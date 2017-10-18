@@ -1,0 +1,16 @@
+<div ng-controller="SignupController" class="md-dialog-container" id="myDialog">
+    <md-dialog class="rtl" layout-padding>
+        <h4>{{'signup.ok.title'|
+            translate}}</h4>
+        <md-dialog-content>
+            <p>
+                {{'signup.ok.text'|
+                translate}}
+            </p>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" style="float: left;">
+            <md-button layout-align="end center" md-no-ink class="md-primary" ng-click="cancel()">{{'general.words.close' | translate}}</md-button>
+        </md-dialog-actions>
+    </md-dialog>
+
+</div>

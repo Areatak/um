@@ -1,0 +1,305 @@
+<div style="overflow:hidden;">
+
+    <md-toolbar hide-xs
+                hide-sm class="top-bar-sticky">
+        <div layout="row" class="md-toolbar-tools">
+            <div flex="10">
+                <md-button ng-href="#/">{{'header.home' | translate}}</md-button>
+            </div>
+            <div flex="10">
+                <md-button ng-href="#/validate">{{'header.validate' | translate}}</md-button>
+            </div>
+            <!--<md-button ng-click="ctrl.changeLang('en')" style="min-width: 20px;width: 20px;">en</md-button>-->
+            <!--<md-button ng-click="ctrl.changeLang('ru')" style="min-width: 20px;width: 20px;">ru</md-button>-->
+            <div style="margin-right: auto;">
+                <md-select style="padding-top:10px;" md-no-asterisk="flase" class="lang-select md-no-underline"
+                           placeholder="{{'general.words.language' | translate}}" aria-label="langSelect"
+                           ng-model="lang"
+                           ng-change="langChange()">
+                    <md-option value="en">
+                        English
+                    </md-option>
+                    <md-option value="ru">
+                        Russian
+                    </md-option>
+                </md-select>
+            </div>
+            <div flex="5" class="ie-flex">
+                <img hide-xs src="/resources/images/logo.png" class="logo-sticky img-responsive">
+                <img hide-gt-xs src="/resources/images/logo-condensed.png"
+                     class="logo-sticky img-responsive">
+                <!-- <img hide-xs src="/resources/images/logo.png" class="logo img-responsive">
+                 <img style="height: 60%;" hide-gt-xs src="/resources/images/logo-condensed.png"
+                      class="logo img-responsive">-->
+            </div>
+            <div layout="row" hide-xs flex="30" style="margin-left: auto;">
+                <div style="margin-left: auto;" flex="35">
+                    <md-button ng-if="!isLogin" class="flat-btn" ng-click="ctrl.signup()">{{'header.signup' |
+                        translate}}
+                    </md-button>
+                </div>
+                <div style="" flex="35">
+                    <md-button ng-if="!isLogin" class="flat-btn" ng-click="ctrl.signin()">{{'header.login' |
+                        translate}}
+                    </md-button>
+                </div>
+                <md-menu layout="row" ng-if="isLogin" flex md-offset="40 50" style="direction: rtl;">
+                    <div layout="row" flex="12" ng-click="ctrl.openMenu($mdMenu, $event)">
+                        <div class="navbar-name">
+                            <div layout="column" style="line-height: 18px;margin-top: 10px;">
+                                <div style="font-weight: bold;font-size: 14px;">
+                                    <span ng-show="fname">{{fname}}</span> <span ng-show="lname">{{lname}}</span>
+                                </div>
+                                <div>
+                                    <!--<span style="color: #0067ce;font-weight: bold;font-size:14px;">{{'header.credit' | translate}}: {{credit || 0}} {{'header.utabit' | translate}}</span>-->
+                                </div>
+                                <div>
+                                    <span>{{email}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <canvas style="vertical-align: middle;" width="48" height="48" ng-show="!pic"
+                                data-jdenticon-hash="{{userIdHash}}"></canvas>
+                        <img ng-cloak ng-show="pic" class="avatar"
+                             ng-src="data:image/jpg;base64,{{pic}}"/>
+                    </div>
+                    <md-menu-content width="3" class="ie-flex" style="font-weight: bold; font-size: 16px;">
+                        <md-menu-item style="cursor: pointer;" ng-if="isLogin" ng-click="ctrl.profile()">
+                            <span style="text-align: right;" flex="60"
+                                  class="ie-flex">{{'header.profile' | translate}}</span><i flex="40"
+                                                                                            class="material-icons">account_box</i>
+                        </md-menu-item>
+                        <!-- TODO: Farnoosh 960227 - wait for google to accept out policy -->
+                        <!--<md-menu-item style="cursor: pointer;" ng-if="isLogin" ng-click="ctrl.invite();">
+                            <span style="text-align: right;" flex="60" class="ie-flex">دعوت از دوستان
+                            </span>
+                            <i flex="40" class="material-icons">email</i>
+                        </md-menu-item>-->
+                        <!--<md-menu-item style="cursor: pointer;" ng-if="isLogin" ng-click="ctrl.payment()">
+                            <span style="text-align: right;" flex="60" class="ie-flex">{{'header.menu.buycredit' | translate}}</span>
+                            <i flex="40" class="material-icons">payment</i>
+                        </md-menu-item>-->
+                        <md-menu-item style="cursor: pointer;" ng-if="isLogin" ng-click="ctrl.transactionList()">
+                            <span style="text-align: right;" flex="60" class="ie-flex">{{'header.menu.transactions' | translate}}</span><i
+                                flex="40" class="material-icons">view_list</i>
+                        </md-menu-item>
+                        <md-menu-item style="cursor: pointer" ng-if="isLogin" ng-click="ctrl.signout()">
+                            <span style="text-align: right;" flex="60"
+                                  class="ie-flex">{{'header.logout' | translate}}</span><i flex="40"
+                                                                                           class="material-icons">exit_to_app</i>
+                        </md-menu-item>
+                    </md-menu-content>
+
+                </md-menu>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <!--<md-nav-bar
+            hide-xs
+            hide-sm
+            md-selected-nav-item="currentNavItem"
+            nav-bar-aria-label="navigation links">
+        <div layout="row" flex="100" class="top-bar" style="">
+            <md-nav-item md-nav-href="#/" name="home">{{'header.home' | translate}}</md-nav-item>
+            <md-nav-item hide-xs md-nav-href="#/validate" name="validate">{{'header.validate' | translate}}
+            </md-nav-item>
+            <span flex-xs flex-gt-xs="50" flex-sm="40" class="ie-flex">
+                <img hide-xs src="/resources/images/logo.png" class="logo img-responsive">
+                <img style="height: 60%;" hide-gt-xs src="/resources/images/logo-condensed.png"
+                     class="logo img-responsive">
+            </span>
+            <md-button ng-click="ctrl.changeLang('en')" style="min-width: 20px;width: 20px;">en</md-button>
+            <md-button ng-click="ctrl.changeLang('ru')" style="min-width: 20px;width: 20px;">ru</md-button>
+            <md-nav-item ng-if="!isLogin" md-nav-click="ctrl.signup()" name="signup">{{'header.signup' | translate}}
+            </md-nav-item>
+            <md-nav-item ng-if="!isLogin" md-nav-click="ctrl.signin()" name="signin">{{'header.login' | translate}}
+            </md-nav-item>
+            <div hide-xs flex="20">
+                <md-menu layout="row" ng-if="isLogin" flex md-offset="40 50" style="direction: rtl;">
+                    <div layout="row" flex="12" ng-click="ctrl.openMenu($mdMenu, $event)" style="margin-top: 10px;">
+                        <div class="navbar-name">
+                            <div layout="column" style="line-height: 18px;margin-top: 10px;">
+                                <div style="font-weight: bold;font-size: 14px;">
+                                    <span ng-show="fname">{{fname}}</span> <span ng-show="lname">{{lname}}</span>
+                                </div>
+                                <div>
+                                    &lt;!&ndash;<span style="color: #0067ce;font-weight: bold;font-size:14px;">{{'header.credit' | translate}}: {{credit || 0}} {{'header.utabit' | translate}}</span>&ndash;&gt;
+                                </div>
+                                <div>
+                                    <span>{{email}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <canvas style="vertical-align: middle;" width="64" height="64" ng-show="!pic"
+                                data-jdenticon-hash="{{userIdHash}}"></canvas>
+                        <img ng-cloak ng-show="pic" class="avatar"
+                             ng-src="data:image/jpg;base64,{{pic}}"/>
+                    </div>
+                    <md-menu-content width="3" class="ie-flex" style="font-weight: bold; font-size: 16px;">
+                        <md-menu-item style="cursor: pointer;" ng-if="isLogin" ng-click="ctrl.profile()">
+                            <span style="text-align: right;" flex="60"
+                                  class="ie-flex">{{'header.profile' | translate}}</span><i flex="40"
+                                                                                            class="material-icons">account_box</i>
+                        </md-menu-item>
+                        &lt;!&ndash; TODO: Farnoosh 960227 - wait for google to accept out policy &ndash;&gt;
+                        &lt;!&ndash;<md-menu-item style="cursor: pointer;" ng-if="isLogin" ng-click="ctrl.invite();">
+                            <span style="text-align: right;" flex="60" class="ie-flex">دعوت از دوستان
+                            </span>
+                            <i flex="40" class="material-icons">email</i>
+                        </md-menu-item>&ndash;&gt;
+                        &lt;!&ndash;<md-menu-item style="cursor: pointer;" ng-if="isLogin" ng-click="ctrl.payment()">
+                            <span style="text-align: right;" flex="60" class="ie-flex">{{'header.menu.buycredit' | translate}}</span>
+                            <i flex="40" class="material-icons">payment</i>
+                        </md-menu-item>&ndash;&gt;
+                        <md-menu-item style="cursor: pointer;" ng-if="isLogin" ng-click="ctrl.transactionList()">
+                            <span style="text-align: right;" flex="60" class="ie-flex">{{'header.menu.transactions' | translate}}</span><i
+                                flex="40" class="material-icons">view_list</i>
+                        </md-menu-item>
+                        <md-menu-item style="cursor: pointer" ng-if="isLogin" ng-click="ctrl.signout()">
+                            <span style="text-align: right;" flex="60"
+                                  class="ie-flex">{{'header.logout' | translate}}</span><i flex="40"
+                                                                                           class="material-icons">exit_to_app</i>
+                        </md-menu-item>
+                    </md-menu-content>
+
+                </md-menu>
+            </div>
+        </div>
+    </md-nav-bar>-->
+    <md-toolbar class="top-bar vert-center-child" hide-gt-sm style="padding:10px;height: 80px;background-color: #FFFFFF!important;color: #2962ff!important;">
+        <div layout="row" class="md-toolbar-tools" style="padding:0;">
+            <div flex="25">
+                <md-button md-no-ink style="color:rgba(78, 78, 78, 0.7);" ng-click="toggleSideNav()"
+                           ng-hide="isSideNavOpen()" class="" aria-label="Settings">
+                    <i style="border:solid 1px rgba(78, 78, 78, 0.3);border-radius:2px;font-size: 30px;" class="material-icons">menu</i>
+                </md-button>
+            </div>
+            <div flex="45" style="text-align: center;">
+                <img src="/resources/images/logo.png" class="logo" style="right:42%;margin:auto;height: 65px;width: auto;">
+            </div>
+            <!--<h2 flex md-truncate></h2>-->
+            <div flex="30" style="text-align:right;">
+                <!--<md-button class="flat-btn" style="font-weight: bold;" ng-if="!isLogin"
+                           ng-click="ctrl.signup()">{{'header.signup' | translate}}
+                </md-button>-->
+                <md-button class="flat-btn" style="font-weight: bold;" ng-if="!isLogin"
+                           ng-click="ctrl.signin()">{{'header.login' | translate}}
+                </md-button>
+                <md-button class="flat-btn" style="font-weight: bold;" ng-if="isLogin"
+                           ng-click="ctrl.signout()">{{'header.logout' | translate}}<i class="material-icons">exit_to_app</i>
+                </md-button>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-sidenav ng-cloak hide-gt-sm class="md-sidenav md-whiteframe-4dp" md-component-id="right">
+        <md-toolbar layout="row" style="position: relative;">
+            <div flex layout="row">
+                <div flex="50">
+                    <img style="display: block;margin-right:auto;width: auto; height: 100px;padding: 5px;"
+                         src="/resources/images/logo-text-white.png" class="img-responsive">
+                </div>
+                <div flex="50" style="margin-top: 8px;">
+                    <canvas ng-if="isLogin" style="vertical-align: middle;margin-right:10px;background-color: #ffffff;"
+                            width="48" height="48" ng-show="!pic" data-jdenticon-hash="{{userIdHash}}"></canvas>
+                    <img ng-if="isLogin" ng-show="pic" class="avatar"
+                         style="display: block;margin-left:auto;"
+                         ng-src="data:image/jpg;base64,{{pic}}"/>
+                    <div ng-if="isLogin"
+                         style="font-size: 12px;margin-top: 7px;margin-bottom: 20px;padding-right: 10px;">
+                        <div style="font-size: 16px;font-weight: bold;">
+                            <span ng-show="fname">{{fname}}</span> <span ng-show="lname">{{lname}}</span>
+                        </div>
+                        <span>{{email}}</span>
+                        <!--<div style="font-weight: bold;">{{'header.credit' | translate}}: {{credit || 0}} {{'header.utabit' | translate}}</div>-->
+                    </div>
+                </div>
+            </div>
+        </md-toolbar>
+        <md-content layout="column">
+            <div ng-show="false" layout="row">
+                <div flex="50">
+                    <img src="/resources/images/logo.png" class="img-responsive">
+                </div>
+                <div ng-if="isLogin" flex="50">
+                    <img ng-show="!pic" class="avatar" ng-cloak
+                         ng-src="data:image/svg+xml;base64,{{identicon}}">
+                    <img ng-cloak ng-show="pic" class="avatar"
+                         ng-src="data:image/jpg;base64,{{pic}}"/>
+                </div>
+            </div>
+            <md-list>
+                <div>
+                    <md-list-item>
+                        <a style="text-align:center;width: 100%;" ng-href="#/">
+                            <md-button class="md-primary"
+                                       style="font-size: 16px;color: #2962ff!important;font-weight: bold;">
+                                {{'header.home' | translate}}
+                            </md-button>
+                        </a>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                </div>
+                <div>
+                    <md-list-item>
+                        <a style="text-align:center;width: 100%;" ng-href="#/validate">
+                            <md-button class="md-primary"
+                                       style="font-size: 16px;color: #2962ff!important;font-weight: bold;">
+                                {{'header.validate' | translate}}
+                            </md-button>
+                        </a>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                </div>
+                <!--<div ng-if="isLogin">
+                    <md-list-item>
+                        <md-button class="md-primary" ng-if="isLogin" ng-click="ctrl.payment()"
+                                   style="width: 100%;font-size: 16px;color: #2962ff!important;font-weight: bold;">{{'header.menu.buycredit' | translate}}</md-button>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                </div>-->
+                <div ng-if="isLogin">
+                    <md-list-item>
+                        <a style="text-align:center;width: 100%;" ng-href="#/transaction/list">
+                            <md-button class="md-primary"
+                                       style="font-size: 16px;color: #2962ff!important;font-weight: bold;">
+                                {{'header.menu.transactions' | translate}}
+                            </md-button>
+                        </a>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                </div>
+                <div ng-if="isLogin">
+                    <md-list-item>
+                        <md-button class="md-primary" ng-if="isLogin" ng-click="ctrl.profile()"
+                                   style="width: 100%;font-size: 16px;color: #2962ff!important;font-weight: bold;">
+                            {{'header.profile' | translate}}
+                        </md-button>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                </div>
+                <div ng-if="isLogin">
+                    <!-- TODO: Farnoosh 960227 - wait for google to accept out policy -->
+                    <!--<md-list-item>
+                        <a style="text-align:center;width: 100%;" ng-href="#/invite">
+                            <md-button class="md-primary"
+                                       style="font-size: 16px;color: #2962ff!important;font-weight: bold;">
+دعوت از دوستان
+                            </md-button>
+                        </a>
+                    </md-list-item>
+                    <md-divider></md-divider>-->
+                </div>
+                <div ng-if="isLogin">
+                    <md-list-item>
+                        <md-button class="md-primary" ng-if="isLogin" ng-click="ctrl.signout()"
+                                   style="width: 100%;font-size: 16px;color: #2962ff!important;font-weight: bold;">
+                            {{'header.logout' | translate}}
+                        </md-button>
+                    </md-list-item>
+                </div>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+</div>

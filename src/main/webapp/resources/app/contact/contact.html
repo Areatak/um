@@ -1,0 +1,29 @@
+<md-content layout-fill flex class="ie-flex md-padding home-container">
+    <div layout-xs="column" layout-gt-xs="row" class="ie-flex" layout-fill>
+        <div layout="column" flex class="md-padding">
+            <h2 class="page-title">{{title}}</h2>
+            <div class="md-margin innerpage-text" style="padding-top: 0;">
+                <div style="margin-top: 10px;">
+                    <span style="font-weight: bold;">{{'sidePages.contact.addressTitle' | translate}}</span></br>
+                    <span>{{'sidePages.contact.address' | translate}}</span>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="font-weight: bold;">{{'sidePages.contact.phoneTitle' | translate}}</span></br>
+                    <span>22905692 – 021</span>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="font-weight: bold;">{{'general.words.email' | translate}}:</span></br>
+                    <span>info@utadoc.com</span>
+                </div>
+            </div>
+        </div>
+        <div layout="column" flex style="display: flex;
+              flex-direction: column;
+              justify-content: center;">
+            <!--<ng-map center="[35.766623, 51.428275]"></ng-map>-->
+            <ng-map center="35.766623, 51.428275" zoom="16">
+                <marker position="[35.766623, 51.4282758]"></marker>
+            </ng-map>
+        </div>
+    </div>
+</md-content>

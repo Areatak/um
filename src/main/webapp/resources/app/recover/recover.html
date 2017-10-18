@@ -1,0 +1,56 @@
+<md-content layout="column"
+            class="home-container md-padding col-sm-6 col-xs-6"
+            ng-controller="RecoverController as ctrl">
+    <form name="recoverForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'passwordRecover.recoverPassword' | translate}}</h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div>
+                <md-input-container class="md-block">
+                    <label>{{'general.words.email' | translate}}</label>
+                    <input name="email" type="email" ng-readonly="true"
+                           ng-model="recoverEmail" ng-pattern="/^.+@.+\..+$/" md-autofocus
+                           required/>
+                    <div ng-messages="recoverForm.email.$error" role="alert">
+                        <div ng-message-exp="['pattern']">
+                            {{'general.input.validEmail' |
+                            translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'general.words.password' | translate}}</label>
+                    <input type="password" name="password" ng-model="recoverPassword" minlength="6" required/>
+                    <div ng-messages="recoverForm.password.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            {{'general.input.required' |
+                            translate}}
+                        </div>
+                        <div ng-message-exp="['minlength']">
+                            {{'general.input.minlength.6' |
+                            translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'general.words.confirmPassword' | translate}}</label>
+                    <input type="password" name="confirmPassword" ng-model="recoverConfirmPassword" minlength="6"
+                           required/>
+                    <div ng-messages="recoverForm.password.$error" role="alert">
+                        <div id="confirmPasswordError" ng-message-exp="['minlength','required']">
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-content layout="row">
+            <md-button type="button" ng-click="ctrl.submit()" ng-disabled="recoverForm.$invalid" class="md-raised md-primary">
+                {{'general.words.okButton' | translate}}
+            </md-button>
+        </md-content>
+    </form>
+</md-content>

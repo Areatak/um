@@ -1,0 +1,51 @@
+<md-dialog style="width: 400px;" class="auth-dialog" aria-label="CreateTrx">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'transaction.detail.title' | translate}}</h2>
+            <span flex></span>
+            <md-button aria-label="close" class="dialog-close-btn" ng-click="cancel()">
+                <i class="material-icons md-24">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <!--<md-input-container class="md-block">
+                <label>{{'general.words.id' | translate}}</label>
+                <input disabled type="text" name="txId" ng-model="trx.txId"/>
+            </md-input-container>-->
+            <md-input-container class="md-block">
+                <label>{{'general.words.hash' | translate}}</label>
+                <textarea ng-model="trx.hash" disabled>{{trx.hash}}</textarea>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>{{'general.words.date' | translate}}</label>
+                <input disabled type="text" name="created" ng-model="trx.created"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>{{'general.words.desc' | translate}}</label>
+                <textarea ng-model="trx.desc" disabled>{{trx.desc}}</textarea>
+            </md-input-container>
+            <div>
+                <i ng-if="trx.confirmations == 0" class="trx-status-pending material-icons md-36"
+                   aria-hidden="true">schedule</i>
+                <i ng-if="trx.confirmations > 0" class="trx-status-confirmed material-icons md-36"
+                   aria-hidden="true">done_all</i>
+                <label>{{'general.words.status' | translate}}:</label>
+                <span ng-if="trx.confirmations == 0">{{'transaction.status.waiting' | translate}}</span>
+                <span ng-if="trx.confirmations > 0">{{'transaction.status.confirmed' | translate}}</span>
+                <div ng-if="trx.confirmations == 0 && trx.minutesToConfirmFrom > 0" class="trx-status-pending">
+                    {{'transaction.remainingTime.leftMsg' | translate}}
+                    {{trx.minutesToConfirmFrom}}
+                    {{'transaction.remainingTime.to' | translate}}
+                    {{trx.minutesToConfirmTo}}
+                    {{'transaction.remainingTime.minute' | translate}}
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <!--<md-button type="submit" class="md-raised md-primary">ثبت</md-button>-->
+    </md-dialog-actions>
+</md-dialog>

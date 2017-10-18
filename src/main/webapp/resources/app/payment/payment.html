@@ -1,0 +1,38 @@
+<md-dialog class="auth-dialog" aria-label="Payment">
+    <form name="paymentForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'payment.buyCredit' | translate}}</h2>
+                <span flex></span>
+                <md-button class="dialog-close-btn" ng-click="cancel()">
+                    <i class="material-icons md-24">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block">
+                    <label>{{'payment.amountUtabit' | translate}}</label>
+                    <input name="ubit" min="20" type="number" dir="ltr" ng-model="paymentData.ubit" md-autofocus
+                           required/>
+                    <div ng-messages="paymentForm.ubit.$error" role="alert">
+                        <div ng-message="min">
+                            {{'payment.400' |
+                            translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="button" ng-click="submit()" ng-disabled="paymentForm.$invalid" class="md-raised md-primary md-success">
+                {{'payment.paymentButton' | translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+    <div id="result">
+
+    </div>
+</md-dialog>

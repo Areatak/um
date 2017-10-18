@@ -1,0 +1,178 @@
+<md-dialog ng-cloak style="width: 600px;" class="auth-dialog" aria-label="CreateTrx">
+    <form name="trxCreateForm" style="overflow: hidden;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'transaction.createTx' | translate}}</h2>
+                <span flex></span>
+                <md-button aria-label="close" class="dialog-close-btn" ng-click="cancel()">
+                    <i class="material-icons md-24">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block">
+                    <label>Hash</label>
+                    <textarea ng-model="trx.hash" disabled>{{trx.hash}}</textarea>
+                </md-input-container>
+                <!--<div layout="row">
+                    <md-input-container class="md-block">
+                        <label>{{'payment.amount' | translate}}</label>
+                        <input disabled type="text" name="fee" ng-model="trx.fee" readonly/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{'payment.yourCredit' | translate}}</label>
+                        <input disabled type="number" name="credit" ng-model="user.credit" readonly/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                    <md-button type="button" ng-click="buyCredit()" class="md-raised md-accent">
+                        {{'payment.buyCredit' | translate}}
+                    </md-button>
+                    </md-input-container>
+                </div>-->
+                <div>
+
+                </div>
+                <div>
+                    <md-checkbox ng-model="trx.upload" aria-label="Checkbox 1">
+                    </md-checkbox>
+                    <label style="margin-right: 10px;">
+                        {{'transaction.fileUploaded1' | translate}}
+                        <span style="color: #2962ff;">{{'title' | translate}}</span>
+                        {{'transaction.fileUploaded2' | translate}}
+                    </label>
+                </div>
+                <md-input-container class="md-block" md-no-float>
+                    <textarea placeholder="{{'general.words.desc' | translate}}" maxlength="400"
+                              ng-model="trx.desc"></textarea>
+                </md-input-container>
+                <div>
+                    <h5 style="font-weight: bold;">Please select one of the following plans which is best match for your document:</h5>
+                </div>
+                <div layout-gt-sm="row" layout-xs="column" layout-sm="column" flex>
+                    <div flex-xs="100" flex-sm="100" flex-gt-sm="50" layout-xs="row" layout-sm="row" layout-gt-sm="column">
+                        <md-card ng-click="selectType('singleframe')" ng-class="{'document-type-selector plan-box': true,'selected-document-type': docType === 'singleframe'}">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">Single Frame</span>
+                                    <span class="ltr md-subhead">100 €</span>
+                                    <span class="normal-price ltr md-subhead">455,000 Tomans</span>
+                                    <span class="discount-price ltr md-subhead">136,500 Tomans</span>
+                                    <span class="discount-desc md-subhead">
+هفتاد درصد تخفیف
+                                        <br/>
+قابلیت پرداخت ریالی از طریق کارت های عضو شتاب
+                                        <br/>
+فقط برای شرکت کنندگان ایرانی اولین دوره</span>
+                                </md-card-title-text>
+                                <md-card-title-media>
+                                <span><i
+                                        class="material-icons md-48"
+                                        aria-hidden="true">photo</i></span>
+                                </md-card-title-media>
+                            </md-card-title>
+                            <md-card-content class="plan-desc">
+                                Print, Out door, Poster and similar entries must be uploaded as high-resolution jpeg
+                                (300 dpi/RGB /~240mm on longest side)
+                                English Translation for Body / Slogan is needed.
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                    <div flex-xs="100" flex-sm="100" flex-gt-sm="50" layout-xs="row" layout-sm="row" layout-gt-sm="column">
+                        <md-card ng-click="selectType('campaign')" ng-class="{'document-type-selector plan-box': true,'selected-document-type': docType === 'campaign'}">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">Campaign</span>
+                                    <span class="ltr md-subhead">300 €</span>
+                                    <span class="normal-price ltr md-subhead">1,365,000 Tomans</span>
+                                    <span class="discount-price ltr md-subhead">409,500 Tomans</span>
+                                    <span class="discount-desc md-subhead">
+هفتاد درصد تخفیف
+                                    <br/>
+قابلیت پرداخت ریالی از طریق کارت های عضو شتاب
+                                        <br/>
+فقط برای شرکت کنندگان ایرانی اولین دوره</span>
+                                </md-card-title-text>
+                                <md-card-title-media>
+                                <span><i
+                                        class="material-icons md-48"
+                                        aria-hidden="true">photo_library</i></span>
+                                </md-card-title-media>
+                            </md-card-title>
+                            <md-card-content class="plan-desc">
+                                <br/>
+                                Several single frames can gather as a Campaign (Maximum 5 frames) PDF format
+                                specifications as single frames
+                                English Translation for Body / Slogan is needed.
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </div>
+                <div layout-gt-sm="row" layout-xs="column" layout-sm="column" flex>
+                    <div flex-xs="100" flex-sm="100" flex-gt-sm="50" layout-xs="row" layout-sm="row" layout-gt-sm="column">
+                        <md-card ng-click="selectType('video')" ng-class="{'document-type-selector plan-box': true,'selected-document-type': docType === 'video'}">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">Video</span>
+                                    <span class="ltr md-subhead">600 €</span>
+                                    <span class="normal-price ltr md-subhead">2,730,000 Tomans</span>
+                                    <span class="discount-price ltr md-subhead">1,365,000 Tomans</span>
+                                    <span class="discount-desc md-subhead">
+پنجاه درصد تخفیف
+                                        <br/>
+قابلیت پرداخت ریالی از طریق کارت های عضو شتاب
+                                        <br/>
+فقط برای شرکت کنندگان ایرانی اولین دوره</span>
+                                </md-card-title-text>
+                                <md-card-title-media>
+                                <span><i
+                                        class="material-icons md-48"
+                                        aria-hidden="true">ondemand_video</i></span>
+                                </md-card-title-media>
+                            </md-card-title>
+                            <md-card-content class="plan-desc">
+                                Video entries
+                                may be uploaded as .mp4 (.mpeg) files only and not exceed 100 seconds.
+                                English Subtitle is needed.
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                    <div flex-xs="100" flex-sm="100" flex-gt-sm="50" layout-xs="row" layout-sm="row" layout-gt-sm="column">
+                        <md-card ng-click="selectType('campaignplus')" ng-class="{'document-type-selector plan-box': true,'selected-document-type': docType === 'campaignplus'}">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">Campaign+</span>
+                                    <span class="ltr md-subhead">900 €</span>
+                                    <span class="normal-price ltr md-subhead">4,095,000 Tomans</span>
+                                    <span class="discount-price ltr md-subhead">2,047,000 Tomans</span>
+                                    <span class="discount-desc md-subhead">
+پنجاه درصد تخفیف
+                                        <br/>
+قابلیت پرداخت ریالی از طریق کارت های عضو شتاب
+                                        <br/>
+فقط برای شرکت کنندگان ایرانی اولین دوره</span>
+                                </md-card-title-text>
+                                <md-card-title-media>
+                                <span><i
+                                        class="material-icons md-48"
+                                        aria-hidden="true">link</i></span>
+                                </md-card-title-media>
+                            </md-card-title>
+                            <md-card-content class="plan-desc">
+                                Integrated campaigns
+                                contain 3-5 frames and 1-3 video
+                                shall be uploaded same as campaign and
+                                video separately.
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <md-button type="button" ng-click="submit()" class="md-raised md-primary">{{'general.words.submit' |
+                translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

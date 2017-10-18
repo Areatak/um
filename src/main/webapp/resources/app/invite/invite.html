@@ -1,0 +1,44 @@
+<md-content layout="column" flex layout-fill
+            class="ie-flex home-container md-padding"
+            >
+    <div flex layout="row" class="container" style="max-height: 80px;">
+        <h2 flex>{{'sidePages.invite.title' | translate}}</h2>
+        <div flex="20" class="ie-flex">
+            <md-button style="font-size:16px;width: 50%;display: block;margin: auto;margin-top: 20px;margin-left: 0;" class="md-raised md-primary" ng-click="invite();">{{'sidePages.invite.sendButton' | translate}}</md-button>
+        </div>
+    </div>
+    <div flex class="container ie-flex">
+        <!--     contact list   	 -->
+        <div layout="row" layout-sm="column" layout-align="space-around" class="loading-div" ng-show="loading">
+            <md-progress-circular ng-disabled="!loading" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div class="col-xs-12 panel-body" style="padding: 0;">
+            <ul class="list-group" style="padding-right: 0;width: 100%;display: block; margin: auto;">
+                <li layout="column">
+                    <input flex class="form-control" placeholder="{{'general.words.search' | translate}}" type="text" ng-model="searchText">
+                    <!-- Show list of the contacts -->
+                    <div flex class="ie-flex">
+                        <md-button ng-repeat="currentContact in contacts | filter: searchText"
+                                   style="border-bottom: solid 1px #ccc;"
+                                   layout="row"
+                                   dir="ltr"
+                                   class="list-group-item"
+                                   ng-click="selectContact(currentContact)">
+                            <div flex="12">
+                                <canvas ng-show="!currentContact.photo"
+                                        style="vertical-align: middle;"
+                                        width="48" height="48"></canvas>
+                                <img ng-cloak ng-show="currentContact.photo"
+                                     class="gmail-profile-pic"
+                                     ng-src="{{currentContact.photo}}"/>
+                            </div>
+                            <span flex>{{currentContact.email}}</span>
+                            <i flex="5" ng-show="currentContact.selected" class="material-icons">check_circle</i>
+                        </md-button>
+                    </div>
+                    <!-- end of contacts -->
+                </li>
+            </ul>
+        </div>
+    </div>
+</md-content>
