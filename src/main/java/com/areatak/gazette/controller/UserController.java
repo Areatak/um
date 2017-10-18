@@ -6,15 +6,12 @@ import com.areatak.gazette.entities.Device;
 import com.areatak.gazette.entities.Media;
 import com.areatak.gazette.entities.User;
 import com.areatak.gazette.exception.AuthException;
-import com.areatak.util.Logger;
 import com.areatak.gazette.metadata.Platform;
 import com.areatak.gazette.security.Authenticator;
 import com.areatak.util.*;
-
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.collections4.map.LRUMap;
 import org.apache.commons.lang3.StringUtils;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
@@ -23,7 +20,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -57,8 +53,20 @@ public class UserController {
 	
 	public static LRUMap<String, Object> forgotPassword = new LRUMap<>(1000);
 	private Random random = new Random(new Date().getTime());
-	
-	
+
+
+	@CrossOrigin
+	@RequestMapping(method = RequestMethod.POST, value = "/oauth", produces = "application/json; charset=utf-8")
+	public ResponseEntity<Boolean> hasAuth(@RequestParam String token) {
+		try {
+			authenticator.validate(token);
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		} catch (Exception ignore) {
+		}
+		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+
+	}
+
 	@CrossOrigin
 	@RequestMapping(method = RequestMethod.POST, value = "/signup", produces = "application/json; charset=utf-8")
 	public ResponseEntity<HashMap<String, Serializable>> singup(@RequestParam(name = "email") String email,
