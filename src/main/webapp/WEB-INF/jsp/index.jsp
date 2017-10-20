@@ -19,10 +19,10 @@
     <meta property="og:title" content="utadoc.com"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="http://utadoc.com"/>
-    <meta property="og:image" content="http://utadoc.com/resources/images/logo.png"/>
+    <meta property="og:image" content="http://utadoc.com/resources/images/um_logo.png"/>
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:description"
-          content="The first Document Authentication and Timestamping System (Utadoc) for different kinds of digital contents such as documents, plans, ideas as well as business, scientific and artistic works in the immutable platform of blockchain"/>
+          content="The first unlimited independent global registration network based on blockchain platform powered by MarcommPub and Utabit"/>
     <meta property="og:locale" content="en_US"/>
     <meta name="google-site-verification" content="PRxZfT9Z3nTX5NpSI4x4VYal2yUNCIYcyVPeNSfpjrg"/>
     <meta property="og:site_name" content="utadoc"/>
