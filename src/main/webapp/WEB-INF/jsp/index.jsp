@@ -33,8 +33,8 @@
       "name": "utadoc.com",
       "alternateName": "utadoc",
       "url": "http://utadoc.com",
-      "logo":"http://utadoc.com/resources/images/logo.png",
-      "description": "The first Document Authentication and Timestamping System (Utadoc) for different kinds of digital contents such as documents, plans, ideas as well as business, scientific and artistic works in the immutable platform of blockchain",
+      "logo":"http://utadoc.com/resources/images/um_logo.png",
+      "description": "The first unlimited independent global registration network based on blockchain platform powered by MarcommPub and Utabit",
       "contactPoint": [
         { "@type": "ContactPoint",
           "contactType": "customer support",
