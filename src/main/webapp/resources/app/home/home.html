@@ -1,7 +1,58 @@
 <md-content class="home-container">
+    <div hl-sticky="" class="simple">
+        <div header class="not-sticky"></div>
+        <div sticky-header class="sticks"></div>
+    </div>
+    <section layout="column" layout-align="center center" class="home-banner-container">
+        <img class="home-banner-logo" src="/resources/images/um_logo.png">
+        <h3>{{'home.banner.title' | translate}}</h3>
+        <span style="text-align: center;">{{'home.banner.body' | translate}}</span>
+    </section>
+
+
+    <section layout="column" layout-align="center left" class="home-safe-container">
+        <span style="font-size: 9.8vw;; width: 100%; text-align: center;">{{'home.safe.title' | translate}}</span>
+        <span>{{'home.safe.body1' | translate}}</span>
+        <span>{{'home.safe.body2' | translate}}</span>
+        <span>{{'home.safe.body3' | translate}}</span>
+        <span>{{'home.safe.body4' | translate}}</span>
+        <span>{{'home.safe.body5' | translate}}</span>
+        <span>{{'home.safe.body6' | translate}}</span>
+        <span>{{'home.safe.body7' | translate}}</span>
+        <span>{{'home.safe.body8' | translate}}</span>
+    </section>
+
+    <section layout="column" layout-align="center left" class="home-feature-container">
+        <span style="color: #ed1c24;">{{'home.feature.1.title' | translate}}</span>
+        <span>{{'home.feature.1.body' | translate}}</span>
+
+        <span style="color: #f7941d;">{{'home.feature.2.title' | translate}}</span>
+        <span>{{'home.feature.2.body' | translate}}</span>
+
+        <span style="color: #fff200;">{{'home.feature.3.title' | translate}}</span>
+        <span>{{'home.feature.3.body' | translate}}</span>
+
+        <span style="color: #1b6225;">{{'home.feature.4.title' | translate}}</span>
+        <span>{{'home.feature.4.body' | translate}}</span>
+
+        <span style="color: #00a99d;">{{'home.feature.5.title' | translate}}</span>
+        <span>{{'home.feature.5.body' | translate}}</span>
+
+        <span style="color: #00aeef;">{{'home.feature.6.title' | translate}}</span>
+        <span>{{'home.feature.6.body' | translate}}</span>
+
+        <span style="color: #0054a6;">{{'home.feature.7.title' | translate}}</span>
+        <span>{{'home.feature.7.body' | translate}}</span>
+
+        <span style="color: #662d91;">{{'home.feature.8.title' | translate}}</span>
+        <span>{{'home.feature.8.body' | translate}}</span>
+
+        <span style="color: #ec008c;">{{'home.feature.9.title' | translate}}</span>
+        <span>{{'home.feature.9.body' | translate}}</span>
+    </section>
     <section style="flex: 1 0 auto;" id="home-uploadbox-container"
              class="home-uploadbox-container home-uploadbox-container-grad">
-        <div class="header" header></div>
+        <!--<div class="header" headerx></div>-->
         <!--<div hl-sticky="" class="simple">
             <div header class="not-sticky"></div>
             <div sticky-header class="sticks"></div>
@@ -9,274 +60,13 @@
         <!--<div particles></div>-->
         <div upload></div>
     </section>
-    <!--services-->
-    <section layout="column" layout-align="center center" class="home-services-container">
-        <div class="home-services-item">
-            <h3>{{'home.services.title' | translate}}</h3>
-        </div>
-        <div layout-xs="column" layout-sm="column" layout-gt-sm="row" layout-align="center center"
-             class="home-services-item flex-fix">
-            <div flex-order-xs="1" flex-xs="30" flex-sm="30" flex-gt-sm="50" class="flex-fix service-img-container-odd">
-                <img class="home-services-item-img-left" src="/resources/images/service-1.jpg">
-            </div>
-            <div class="flex-fix" flex-xs="70" flex-sm="70" layout="row" flex-order-xs="2"
-                 layout-align-gt-sm="center center" layout-align="center center" flex-gt-sm="50" flex="100">
-                <md-whiteframe flex="95"
-                               class="md-padding ie-flex flex-fix"
-                               layout-align="center center">
-                    <div flex-order-xs="1">
-                        <h3>{{'home.b.a.title' | translate}}</h3>
-                        <p>{{'home.b.a.body' | translate}}</p>
-                    </div>
-                </md-whiteframe>
-            </div>
-        </div>
-        <div layout-xs="column" layout-sm="column" layout-gt-sm="row" layout-align="center center"
-             class="home-services-item flex-fix">
-            <div hide-gt-sm flex-order-xs="1" class="flex-fix service-img-container-odd">
-                <img class="home-services-item-img-right" src="/resources/images/service-2.jpg">
-            </div>
-            <div layout="row" class="flex-fix" flex-order-xs="2" layout-align="center center" flex-gt-sm="50"
-                 flex="100">
-                <md-whiteframe flex="95"
-                               class=" md-padding ie-flex flex-fix"
-                               layout-align="center center">
-                    <div flex-order-xs="1">
-                        <h3>{{'home.b.b.title' | translate}}</h3>
-                        <p>{{'home.b.b.body' | translate}}</p>
-                    </div>
-                </md-whiteframe>
-            </div>
-            <div hide-xs hide-sm flex="50">
-                <img class="home-services-item-img-right" src="/resources/images/service-2.jpg">
-            </div>
-        </div>
-        <div layout-xs="column" layout-sm="column" layout-gt-sm="row" layout-align="center center"
-             class="home-services-item flex-fix">
-            <div flex-order-xs="1" flex-gt-sm="50" flex="100" class="flex-fix service-img-container-odd">
-                <img class="home-services-item-img-left" src="/resources/images/service-3.jpg">
-            </div>
-            <div layout="row" class="flex-fix" flex-order-xs="2" layout-align="center center" flex-gt-sm="50"
-                 flex="100">
-                <md-whiteframe flex="95"
-                               class=" md-padding ie-flex flex-fix"
-                               layout-align="center center">
-                    <div flex-order-xs="1">
-                        <h3>{{'home.b.c.title' | translate}}</h3>
-                        <p>{{'home.b.c.body' | translate}}</p>
-                    </div>
-                </md-whiteframe>
-            </div>
-        </div>
-        <div layout-xs="column" layout-sm="column" layout-gt-sm="row" layout-align="center center"
-             class="home-services-item flex-fix">
-            <div hide-gt-sm flex-order-xs="1" class="flex-fix service-img-container-odd">
-                <img class="home-services-item-img-right" src="/resources/images/service-4.jpg">
-            </div>
-            <div layout="row" class="flex-fix" flex-order-xs="2" layout-align="center center" flex-gt-sm="50"
-                 flex="100">
-                <md-whiteframe flex="95"
-                               class="md-padding ie-flex flex-fix"
-                               layout-align="center center">
-                    <div flex-order-xs="1">
-                        <h3>{{'home.b.d.title' | translate}}</h3>
-                        <p>{{'home.b.d.body' | translate}}</p>
-                    </div>
-                </md-whiteframe>
-            </div>
-            <div hide-xs hide-sm flex-order-xs="3" flex="50">
-                <img class="home-services-item-img-right" src="/resources/images/service-4.jpg">
-            </div>
-        </div>
-    </section>
-    <section layout="column" layout-align="center center" class="home-usage-container">
-        <!--<h1 style="font-weight:bold;margin-bottom: 25px;line-height: 1.4;color: #515151;">{{'home.a.fingerprint' | translate}}</h1>
-        <div>
-            <img style="display: block;margin:auto;height: auto;width: 60%;" src="/resources/images/usage.jpg">
-        </div>
-        <div rtl="true" class="home-usage-text">
-            <span>#{{'home.a.patent' | translate }}</span>
-            <span>#{{'home.a.industrial' | translate }}</span>
-            <span>#{{'home.a.business' | translate }}</span>
-            <span>#{{'home.a.contracts' | translate }}</span>
-            <span>#{{'home.a.documents' | translate }}</span>
-            <span>#{{'home.a.cheque' | translate }}</span>
-            <span>#{{'home.a.art' | translate }}</span>
-            <span>#{{'home.a.scientific' | translate }}</span>
-            <span>#{{'home.a.ideas' | translate }}</span>
-        </div>-->
-            <!--<video poster="/resources/images/video-poster.jpg" muted preload="metadata"
-                   controls>
-                <source src="https://hw7.asset.aparat.com/aparat-video/ec1c210b193ba3649841128622585f4f7806797-360p__87335.mp4"
-                        type="video/mp4">
-                Your browser does not support the video tag.
-            </video>-->
-        <div style="padding: 25px 0px;">
-            <iframe id="home-video" src="https://www.youtube.com/embed/c3fmC2_VkFE" frameborder="0" allowfullscreen></iframe>
-        </div>
-            <!--<iframe src="https://www.aparat.com/video/video/embed/videohash/J4gOr/vt/frame" height="360" width="640" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" ></iframe>        </div>-->
-        <!--<div id="tv_container">
-            <video id="home-video" style="margin: 50px 0px;" poster="/resources/images/video-poster.jpg" width="640" height="550" muted preload="metadata"
-                   controls>
-                <source src="https://hw7.asset.aparat.com/aparat-video/ec1c210b193ba3649841128622585f4f7806797-360p__87335.mp4"
-                        type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>-->
-
-    </section>
-    <!--<md-divider class="home-usage-divider"></md-divider>-->
-
-    <!--<md-divider class="home-benefits-divider"></md-divider>-->
-    <!--advantages-->
-    <section layout="column" layout-align="center center" class="home-adv-container">
-        <div style="margin-bottom: 15px;" class="home-services-item">
-            <h3 style="color: #4e4e4e;">{{'home.adv.title' | translate}}</h3>
-        </div>
-        <div layout-xs="column" layout-sm="column" layout-gt-sm="row" layout-align="center center" flex="100"
-             class="ie-flex home-adv-row">
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-6.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.a.title' | translate}}</h3>
-                            <p>{{'home.c.a.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-1.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.b.title' | translate}}</h3>
-                            <p>{{'home.c.b.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-2.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.c.title' | translate}}</h3>
-                            <p>{{'home.c.c.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div layout-xs="column" layout-sm="column" layout-gt-sm="row" layout-align="center center" flex="100"
-             class="ie-flex home-adv-row">
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-8.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.d.title' | translate}}</h3>
-                            <p>{{'home.c.d.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-7.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.e.title' | translate}}</h3>
-                            <p>{{'home.c.e.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-3.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.f.title' | translate}}</h3>
-                            <p>{{'home.c.f.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div layout-xs="column" layout-sm="column" layout-gt-sm="row" layout-align="center center" flex="100"
-             class="ie-flex home-adv-row">
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-4.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.g.title' | translate}}</h3>
-                            <p>{{'home.c.g.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-9.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.h.title' | translate}}</h3>
-                            <p>{{'home.c.h.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="home-adv-item md-margin" flex-sm="100" flex-xs="100" flex-gt-sm="30">
-                <div flex="100"
-                     class="home-adv-row ie-flex"
-                     layout-align="center center">
-                    <div layout="row">
-                        <div flex="50">
-                            <img src="/resources/images/adv-5.jpg">
-                        </div>
-                        <div flex="50">
-                            <h3>{{'home.c.i.title' | translate}}</h3>
-                            <p>{{'home.c.i.body' | translate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section layout="column" layout-align="center left" style="background-color: #363636; color: #ffffff; padding: 15px 5%;font-size: 16px;">
+        <br><br><br>
+        <span style="font-size: 21px;">{{'upload.desc-title' | translate}}</span>
+        <br>
+        <span>{{'upload.desc1' | translate}}</span>
+        <span>{{'upload.desc2' | translate}}</span>
+        <span>{{'upload.desc3' | translate}}</span>
     </section>
 </md-content>
 

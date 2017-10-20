@@ -106,17 +106,10 @@ public class TransactionController {
 	@RequestMapping(method = RequestMethod.POST, value = "/createTnx", produces = "application/json; charset=utf-8")
 	public ResponseEntity<HashMap<String, Serializable>> createTnx(@RequestParam("token") String token,
 	                                                               @RequestParam("hash") String hash,
-	                                                               @RequestParam("type") String type,
-	                                                               @RequestParam("name") String name,
-	                                                               @RequestParam("subject") String subject,
-	                                                               @RequestParam("slogan") String slogan,
 	                                                               @RequestParam(value = "desc", required = false) String desc,
 	                                                               @RequestParam(name = "files", required = false) /*List<MultipartFile> uploadedFile*/ MultipartFile uploadedFile) throws AuthException {
 		synchronized (Spring.lock(token)) {
 			desc = StringUtil.convertToUTF8(desc);
-			subject = StringUtil.convertToUTF8(subject);
-			name = StringUtil.convertToUTF8(name);
-			slogan = StringUtil.convertToUTF8(slogan);
 			if (CoinUtils.getBitcoinConnection() == null) {
 				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
@@ -127,10 +120,6 @@ public class TransactionController {
 			}
 			if (StringUtils.isEmpty(hash)) {
 				Logger.error("TransactionController", "createTnx", hash, "empty hash.");
-				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-			}
-			if (StringUtils.isEmpty(type)) {
-				Logger.error("TransactionController", "createTnx", type, "empty type.");
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 			}
 			//validate token
@@ -223,10 +212,6 @@ public class TransactionController {
 			transaction.setConfirmDate(null);
 			transaction.setCreated(new Date());
 			transaction.setIaaId(UUID.randomUUID());
-			transaction.setType(type);
-			transaction.setName(name);
-			transaction.setSubject(subject);
-			transaction.setSlogan(slogan);
 			transaction = transactionRepo.save(transaction);
 			User user = device.getUser();
 //            user.setCredit(user.getCredit() - getTransactionFee());
@@ -425,7 +410,8 @@ public class TransactionController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		
-		List<Transaction> transactionList = transactionRepo.findByUserAndPaymentStatusAndCreatedGreaterThanEqual(device.getUser(), Transaction.PaymentStatus.Paid, new Date(lastDate == null ? 0 : lastDate.longValue()), new Sort(Sort.Direction.DESC, "created"));
+		List<Transaction> transactionList = transactionRepo.findByUserAndPaymentStatusAndCreatedGreaterThanEqual(device.getUser(), Transaction.PaymentStatus.Pending, new Date(lastDate == null ? 0 : lastDate.longValue()), new Sort(Sort.Direction.DESC, "created"));
+
 		if (transactionList == null || transactionList.size() == 0) {
 			Logger.error("TransactionController", "listTransactions", token, "no transaction found for token = " + token);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

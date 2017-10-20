@@ -1,0 +1,8 @@
+/*MyriadProFont*/
+@font-face
+{
+  font-family:'MyriadPro';
+        src: url('../MyriadPro/MyriadPro-Regular.eot');
+        src: url('../MyriadPro/MyriadPro-Regular.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+            url('../MyriadPro/MyriadPro-Regular.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}

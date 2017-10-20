@@ -35,40 +35,6 @@ public class Transaction extends BaseEntity implements Parameterable {
 	@Column(name = "c_desc")
 	private String desc;
 	
-	@Column(name = "c_name")
-	private String name;
-	
-	@Column(name = "c_subject")
-	private String subject;
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getSubject() {
-		return subject;
-	}
-	
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-	
-	public String getSlogan() {
-		return slogan;
-	}
-	
-	public void setSlogan(String slogan) {
-		this.slogan = slogan;
-	}
-	
-	@Column(name = "c_slogan")
-	private String slogan;
-	
-	
 	@Column(name = "c_iaaId")
 	@Type(type = "uuid-char")
 	private UUID iaaId;
@@ -81,10 +47,7 @@ public class Transaction extends BaseEntity implements Parameterable {
 	
 	@ManyToOne
 	private User user;
-	
-	@Column(name = "c_type")
-	private String type;
-	
+
 	public String getTxId() {
 		return txId;
 	}
@@ -173,14 +136,6 @@ public class Transaction extends BaseEntity implements Parameterable {
 		this.paymentStatus = paymentStatus;
 	}
 	
-	public String getType() {
-		return type;
-	}
-	
-	public void setType(String type) {
-		this.type = type;
-	}
-	
 	@Override
 	public HashMap<String, Serializable> toParamsMap() {
 		HashMap<String, Serializable> map = new HashMap<>();
@@ -202,9 +157,6 @@ public class Transaction extends BaseEntity implements Parameterable {
 		map.put("paymentStatus", getPaymentStatus());
 		if (paymentTime != null)
 			map.put("paymentDate", paymentTime.getTime());
-		map.put("name", name);
-		map.put("subject", subject);
-		map.put("slogan", slogan);
 		return map;
 	}
 	
@@ -220,7 +172,6 @@ public class Transaction extends BaseEntity implements Parameterable {
 		user.put("name", getUser().getName());
 		user.put("lastName", getUser().getLastName());
 		map.put("user", user);
-		map.put("type", type);
 		
 		return map;
 	}

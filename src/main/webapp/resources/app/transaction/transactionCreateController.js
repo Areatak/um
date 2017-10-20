@@ -56,22 +56,21 @@ angular.module('myApp')
 			}
 
 			$scope.submit = function () {
-				if ($scope.docType === null) {
-					UtilsFactory.Toast({
-						text: $translate.instant('transaction.create.1001'),
-						type: 'error'
-					})
-					return;
-				}
+				// if ($scope.docType === null) {
+				// 	UtilsFactory.Toast({
+				// 		text: $translate.instant('transaction.create.1001'),
+				// 		type: 'error'
+				// 	})
+				// 	return;
+				// }
 				$scope.msg = {}
 				$rootScope.$broadcast('createTransactionLoading', true);
 				$mdDialog.hide('cancel');
 				var params = {
 					token: StorageFactory.get('token'),
 					hash: data.hash,
-					desc: $scope.trx.desc,
-					type: $scope.docType
-				}
+					desc: $scope.trx.desc
+				};
 				if ($scope.trx.upload) {
 					params.uploadedFile = data.file
 				}

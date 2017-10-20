@@ -1,13 +1,17 @@
-<md-content style="min-height: 100%;height: auto;" ng-cloak layout-fill class="md-padding">
+<md-content style="min-height: 100%;height: auto; background-color: #363636;color: white;" ng-cloak layout-fill class="md-padding">
+    <div hl-sticky="" class="simple">
+        <div header class="not-sticky"></div>
+        <div sticky-header class="sticks"></div>
+    </div>
     <div ng-if="trx" layout="column" layout-align="center center">
-        <md-card style="min-width: 400px;" class="trx-detail">
+        <md-card style="min-width: 400px;background-color: black;color: white;" class="trx-detail">
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">{{'transaction.detail.title' | translate}}</span>
-                    <span class="md-subhead transaction-detail-time">
+                    <span class="md-subhead transaction-detail-time" style="color: white;">
                         {{trx.created}}
                     </span>
-                    <span class="md-subhead transaction-detail-time">
+                    <span class="md-subhead transaction-detail-time" style="color: white;">
                         <span ng-if="trx.duration.days">{{trx.duration.days}}{{'transaction.relativeTime.day' | translate}}</span>
                         <span ng-if="trx.duration.hours">{{trx.duration.hours}}{{'transaction.relativeTime.hour' | translate}}</span>
                         <span ng-if="trx.duration.minutes">{{trx.duration.minutes}}{{'transaction.relativeTime.minute' | translate}}</span>
@@ -63,13 +67,13 @@
                 <div layout="column">
                     <md-input-container class="md-block">
                         <label>{{'general.words.hash' | translate}}</label>
-                        <textarea ng-model="trx.hash" disabled>{{trx.hash}}</textarea>
+                        <textarea ng-model="trx.hash" disabled style="border-color: rgba(255, 255, 255, 0.38);">{{trx.hash}}</textarea>
                     </md-input-container>
                 </div>
                 <div layout="column">
                     <md-input-container class="md-block">
-                        <span>{{'general.words.desc' | translate}}</span>
-                        <textarea ng-model="trx.desc" disabled>{{trx.desc}}</textarea>
+                        <label>{{'general.words.desc' | translate}}</label>
+                        <textarea ng-model="trx.desc" disabled style="border-color: rgba(255, 255, 255, 0.38);">{{trx.desc}}</textarea>
                     </md-input-container>
                 </div>
             </md-card-content>

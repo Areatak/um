@@ -65,7 +65,7 @@
     <link href="/resources/images/logo-condensed.png" rel="icon" type="image/x-icon"/>
 
 </head>
-<body ng-cloak flex="100">
+<body ng-cloak flex="100" style="background-color: black;">
 <!--[if lt IE 10]>
 <div style="display: block;width:100%;height:500px;font-family: Consolas; font-size: 18px; color: #2962ff; font-weight: bold;text-align: center;background: #D6D6D6;">
     <span style="display:inline-block; margin: 10% auto;padding: 50px;">You are using and outdated browser. Please upgrade your browser or use another browser </br>
@@ -75,7 +75,7 @@
 <div growl></div>
 <%--<div header></div>--%>
 <div ng-view layout="column" style="min-height: 68%;" layout-align="center center" autoscroll="true"></div>
-<div footer layout="column"></div>
+<div footer style="position: relative;bottom: 0;"></div>
 
 <%--head--%>
 <!--[if IE]>
@@ -85,7 +85,7 @@
 <!--[if gt IE 9]><!-->
 <%--<link rel="stylesheet" href="/resources/dist/styles.min.css?">--%>
 <link rel="stylesheet" href="/resources/app/app.css?v=7">
-<link rel="stylesheet" href="/resources/font/iransans/iransans.css">
+<link rel="stylesheet" href="/resources/font/MyriadPro/myriad.css">
 <link rel="stylesheet" href="/resources/bower_components/adm-dtp/dist/ADM-dateTimePicker.min.css"/>
 <%--<link rel="stylesheet" href="/resources/font/vazir-fd/vazir-fd.css?">--%>
 
@@ -95,11 +95,11 @@
 <link rel="stylesheet" href="/resources/bower_components/material-design-icons/iconfont/material-icons.css">
 <%--<link rel="stylesheet" href="/resources/bower_components/angular-loading-bar/build/loading-bar.min.css">--%>
 
-<%--<script src="/resources/bower_components/lodash/dist/lodash.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/lodash/dist/lodash.min.js?v=7"></script>
 
-<%--<script src="/resources/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/angular/angular.min.js?v=7" charset="UTF-8"></script>--%>
-<script src="/resources/dist/scripts.header.js?v=7" charset="UTF-8"></script>
+<script src="/resources/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js?v=7"></script>
+<script src="/resources/bower_components/angular/angular.min.js?v=7" charset="UTF-8"></script>
+<%--<script src="/resources/dist/scripts.header.js?v=7" charset="UTF-8"></script>--%>
 <!--<![endif]-->
 <script src="https://apis.google.com/js/client.js?v=7"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js?v=7"></script>
@@ -170,43 +170,44 @@
 </script>
 <%--endhead--%>
 
-<%--<script src="/resources/bower_components/angular-aria/angular-aria.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/angular-animate/angular-animate.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/angular-material/angular-material.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/angular-aria/angular-aria.min.js?v=7"></script>
+<script src="/resources/bower_components/angular-animate/angular-animate.js?v=7"></script>
+<script src="/resources/bower_components/angular-material/angular-material.min.js?v=7"></script>
 
-<%--<script src="/resources/bower_components/angular-bootstrap/ui-bootstrap.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/angular-bootstrap/ui-bootstrap.min.js?v=7"></script>
+<script src="/resources/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js?v=7"></script>
 
-<%--<script src="/resources/bower_components/angular-route/angular-route.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/angular-route/angular-route.min.js?v=7"></script>
 
-<%--<script src="/resources/bower_components/angular-growl-v2/build/angular-growl.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/angular-growl-v2/build/angular-growl.min.js?v=7"></script>
 
-<%--<script src="/resources/bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/ng-file-upload/ng-file-upload.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/angular-local-storage/dist/angular-local-storage.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/angular-material-data-table/dist/md-data-table.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js?v=7"></script>
+<script src="/resources/bower_components/ng-file-upload/ng-file-upload.min.js?v=7"></script>
+<script src="/resources/bower_components/angular-local-storage/dist/angular-local-storage.min.js?v=7"></script>
+<script src="/resources/bower_components/angular-material-data-table/dist/md-data-table.min.js?v=7"></script>
 <%--angular-qrcode--%>
-<%--<script src="/resources/dependencies/qrcode.js?v=7"></script>--%>
-<%--<script src="/resources/dependencies/qrcode_UTF8.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/angular-qrcode/angular-qrcode.js?v=7"></script>--%>
+<script src="/resources/dependencies/qrcode.js?v=7"></script>
+<script src="/resources/dependencies/qrcode_UTF8.js?v=7"></script>
+<script src="/resources/bower_components/angular-qrcode/angular-qrcode.js?v=7"></script>
+<script src="/resources/bower_components/angular-qrcode/angular-qrcode.js?v=7"></script>
 
-<%--<script src="/resources/bower_components/moment/min/moment.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/moment/min/moment-with-locales.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/moment-jalaali/build/moment-jalaali.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/angular-translate/angular-translate.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/bluebird/js/browser/bluebird.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/Jdenticon/dist/jdenticon.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/moment/min/moment.min.js?v=7"></script>
+<script src="/resources/bower_components/moment/min/moment-with-locales.min.js?v=7"></script>
+<script src="/resources/bower_components/moment-jalaali/build/moment-jalaali.js?v=7"></script>
+<script src="/resources/bower_components/angular-translate/angular-translate.min.js?v=7"></script>
+<script src="/resources/bower_components/bluebird/js/browser/bluebird.min.js?v=7"></script>
+<script src="/resources/bower_components/Jdenticon/dist/jdenticon.min.js?v=7"></script>
 <%--<script src="/resources/bower_components/identicon.js?v=7/identicon.js?v=7"></script>--%>
 
-<%--<script src="/resources/bower_components/angular-sanitize/angular-sanitize.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/videogular/videogular.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/videogular-controls/vg-controls.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/videogular-overlay-play/vg-overlay-play.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/videogular-poster/vg-poster.min.js?v=7"></script>--%>
-<%--<script src="/resources/bower_components/videogular-buffering/vg-buffering.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/angular-sanitize/angular-sanitize.min.js?v=7"></script>
+<script src="/resources/bower_components/videogular/videogular.min.js?v=7"></script>
+<script src="/resources/bower_components/videogular-controls/vg-controls.min.js?v=7"></script>
+<script src="/resources/bower_components/videogular-overlay-play/vg-overlay-play.min.js?v=7"></script>
+<script src="/resources/bower_components/videogular-poster/vg-poster.min.js?v=7"></script>
+<script src="/resources/bower_components/videogular-buffering/vg-buffering.min.js?v=7"></script>
 <%--<script src="/resources/bower_components/particles.js?v=7/particles.min.js?v=7"></script>--%>
 
-<%--<script src="/resources/bower_components/angular-messages/angular-messages.min.js?v=7"></script>--%>
+<script src="/resources/bower_components/angular-messages/angular-messages.min.js?v=7"></script>
 <%--<script src="http://maps.google.com/maps/api/js"></script>--%>
 
 <script src="/resources/app/app.js?v=7" charset="UTF-8"></script>
@@ -221,20 +222,11 @@
 
 <script src="/resources/app/signup/signupController.js?v=7" charset="UTF-8"></script>
 <script src="/resources/app/signin/signinController.js?v=7" charset="UTF-8"></script>
-<script src="/resources/app/about/aboutController.js?v=7" charset="UTF-8"></script>
 <%--<script src="/resources/dist/bundle2.js?v=7" charset="UTF-8"></script>--%>
 <script src="/resources/dist/bluebird-storage.js?v=7" charset="UTF-8"></script>
 
-<script src="/resources/app/invite/inviteController.js?v=7" charset="UTF-8"></script>
 <script src="/resources/app/recover/recoverController.js?v=7" charset="UTF-8"></script>
 <script src="/resources/app/contact/contactController.js?v=7" charset="UTF-8"></script>
-<script src="/resources/app/enterprise/enterpriseController.js?v=7" charset="UTF-8"></script>
-<script src="/resources/app/faq/faqController.js?v=7" charset="UTF-8"></script>
-<script src="/resources/app/help/helpController.js?v=7" charset="UTF-8"></script>
-<script src="/resources/app/job/jobController.js?v=7" charset="UTF-8"></script>
-<script src="/resources/app/privacy/privacyController.js?v=7" charset="UTF-8"></script>
-<script src="/resources/app/terms/termsController.js?v=7" charset="UTF-8"></script>
-<script src="/resources/app/whitepaper/whitepaperController.js?v=7" charset="UTF-8"></script>
 <script src="/resources/app/profile/profileController.js?v=7" charset="UTF-8"></script>
 <script src="/resources/app/transaction/transactionListController.js?v=7" charset="UTF-8"></script>
 <script src="/resources/app/transaction/transactionCreateController.js?v=4v=2" charset="UTF-8"></script>
@@ -281,7 +273,7 @@
 
 <%--<script src="/resources/bower_components/ngmap/build/scripts/ng-map.min.js?v=7"></script>--%>
 <%--<script src="/resources/dependencies/maps.google.js?v=7" charset="UTF-8"></script>--%>
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyDBQBRNCh5cTcXvINWhAYiCevW8ILiPdHA"></script>
+<%--<script src="http://maps.google.com/maps/api/js?key=AIzaSyDBQBRNCh5cTcXvINWhAYiCevW8ILiPdHA"></script>--%>
 <%--<script src="/resources/bower_components/angular-loading-bar/build/loading-bar.min.js?v=7"></script>--%>
 <script src="/resources/js/sockjs.js?v=7"></script>
 <script src="/resources/js/stomp.js?v=7"></script>
